@@ -1,0 +1,31 @@
+{
+    "ServerSetting": {
+        "TableCdnUrl": "http://download-dev.akastudio.co.kr/"
+    },
+    "DBSetting": {
+        "account": {
+            "user": "root",
+            "password": "alaighdi54$%",
+            "database": "account",
+            "host": "127.0.0.1",
+            "port": 3306,
+            "charset": "utf8"
+        },        
+        "knightrun": {
+            "user": "root",
+            "password": "alaighdi54$%",
+            "database": "knightrun",
+            "host": "127.0.0.1",
+            "port": 3306,
+            "charset": "utf8"
+        },
+        "knightrun_gmtool": {
+            "user": "root",
+            "password": "alaighdi54$%",
+            "database": "knightrun_gmtool",
+            "host": "127.0.0.1",
+            "port": 3306,
+            "charset": "utf8"
+        }
+    }
+}

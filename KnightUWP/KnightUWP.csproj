@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{C8F41AFA-DADB-4276-9CC9-689487A99D63}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KnightUWP</RootNamespace>
+    <AssemblyName>KnightUWP</AssemblyName>
+    <DefaultLanguage>ko-KR</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+    <PackageCertificateThumbprint>6629A9F3F9DB7A7CF4E3152D3809093E8DAA4C82</PackageCertificateThumbprint>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Auto</AppxBundle>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+    <AppInstallerUri>http://172.30.1.224:8081/uwp/</AppInstallerUri>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <PackageCertificateKeyFile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dao\Infra\ServerInfo.cs" />
+    <Compile Include="Dao\TextData\TextGetter.cs" />
+    <Compile Include="Dao\TextData\TextCardKr.cs" />
+    <Compile Include="Dao\Users.cs" />
+    <Compile Include="Dao\Dao.cs" />
+    <Compile Include="Dao\TableAttribute.cs" />
+    <Compile Include="Dao\Accounts.cs" />
+    <Compile Include="Dao\Vo\BattleInfo.elixir.cs" />
+    <Compile Include="Dao\Vo\UnitInfo.cs" />
+    <Compile Include="Dao\Vo\BattleInfo.cs" />
+    <Compile Include="Dao\Vo\UserInfo.ux.cs" />
+    <Compile Include="Dao\Vo\UserInfo.cs" />
+    <Compile Include="Library\Animations\ApiInformationHelper.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\AnimationCollection.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\AnimationBase.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\OffsetAnimation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\OpacityAnimation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\RotationAnimation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\RotationInDegreesAnimation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\ScalarAnimation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\ScaleAnimation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\TranslationAnimation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\TypedAnimationBase.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\Vector2Animation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\Vector3Animation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\Animations\Vector4Animation.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\ExpressionKeyFrame.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\KeyFrame.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\KeyFrameCollection.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\ScalarKeyFrame.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\TypedKeyFrame.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\Vector2KeyFrame.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\Vector3KeyFrame.cs" />
+    <Compile Include="Library\Animations\CompositionAnimations\KeyFrames\Vector4KeyFrame.cs" />
+    <Compile Include="Library\Animations\Implicit.cs" />
+    <Compile Include="Library\Animations\ReorderGridAnimation.cs" />
+    <Compile Include="Library\Converters\BoolNegationConverter.cs" />
+    <Compile Include="Library\Converters\BoolToObjectConverter.cs" />
+    <Compile Include="Library\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Library\Converters\CollectionVisibilityConverter.cs" />
+    <Compile Include="Library\Converters\ConverterTools.cs" />
+    <Compile Include="Library\Converters\DoubleToObjectConverter.cs" />
+    <Compile Include="Library\Converters\DoubleToVisibilityConverter.cs" />
+    <Compile Include="Library\Converters\EmptyCollectionToObjectConverter.cs" />
+    <Compile Include="Library\Converters\EmptyObjectToObjectConverter.cs" />
+    <Compile Include="Library\Converters\EmptyStringToObjectConverter.cs" />
+    <Compile Include="Library\Converters\FormatStringConverter.cs" />
+    <Compile Include="Library\Converters\ResourceNameToResourceStringConverter.cs" />
+    <Compile Include="Library\Converters\StringFormatConverter.cs" />
+    <Compile Include="Library\Converters\StringVisibilityConverter.cs" />
+    <Compile Include="Library\Converters\VisibilityToBoolConverter.cs" />
+    <Compile Include="Library\Extensions\FrameworkElement\FrameworkElementExtensions.ActualSize.cs" />
+    <Compile Include="Library\Extensions\FrameworkElement\FrameworkElementExtensions.RelativeAncestor.cs" />
+    <Compile Include="Library\Extensions\StringExtensions.cs" />
+    <Compile Include="Library\Extensions\Visual\VisualExtensions.cs" />
+    <Compile Include="Library\UI\AdaptiveGridView\AdaptiveGridView.cs" />
+    <Compile Include="Library\UI\AdaptiveGridView\AdaptiveGridView.Properties.cs" />
+    <Compile Include="Library\UI\AdaptiveGridView\AdaptiveHeightValueConverter.cs" />
+    <Compile Include="Library\UI\GridSplitter\GridSplitter.cs" />
+    <Compile Include="Library\UI\GridSplitter\GridSplitter.Data.cs" />
+    <Compile Include="Library\UI\GridSplitter\GridSplitter.Events.cs" />
+    <Compile Include="Library\UI\GridSplitter\GridSplitter.Helper.cs" />
+    <Compile Include="Library\UI\GridSplitter\GridSplitter.Options.cs" />
+    <Compile Include="Library\UI\GridSplitter\GripperHoverWrapper.cs" />
+    <Compile Include="Library\UI\RadialProgressBar\RadialProgressBar.cs" />
+    <Compile Include="Library\UI\RangeSelector\RangeChangedEventArgs.cs" />
+    <Compile Include="Library\UI\RangeSelector\RangeSelector.cs" />
+    <Compile Include="Library\UI\TabView\TabClosingEventArgs.cs" />
+    <Compile Include="Library\UI\TabView\TabDraggedOutsideEventArgs.cs" />
+    <Compile Include="Library\UI\TabView\TabView.cs" />
+    <Compile Include="Library\UI\TabView\TabView.HeaderLayout.cs" />
+    <Compile Include="Library\UI\TabView\TabView.ItemSources.cs" />
+    <Compile Include="Library\UI\TabView\TabView.Properties.cs" />
+    <Compile Include="Library\UI\TabView\TabViewItem.cs" />
+    <Compile Include="Library\UI\TabView\TabViewItem.Properties.cs" />
+    <Compile Include="Library\UI\TabView\TabWidthMode.cs" />
+    <Compile Include="Library\UI\TextBoxMask\TextBoxMask.cs" />
+    <Compile Include="Library\UI\TextBoxMask\TextBoxMask.Properties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicecs\Converter\CardStatIdToName.cs" />
+    <Compile Include="Servicecs\Converter\CardColorConverter.cs" />
+    <Compile Include="Servicecs\Converter\MessageTypeToStringConverter.cs" />
+    <Compile Include="Servicecs\Converter\MessageTypeToColorConverter.cs" />
+    <Compile Include="Servicecs\Converter\StateToFilterVisibilityConverter.cs" />
+    <Compile Include="Servicecs\Converter\StateToLoadingVisibilityConverter.cs" />
+    <Compile Include="Servicecs\Converter\StateToColorConverter.cs" />
+    <Compile Include="Servicecs\Converter\StateToBrushConverter.cs" />
+    <Compile Include="Servicecs\Converter\DateConverter.cs" />
+    <Compile Include="Servicecs\Network\Battle.cs" />
+    <Compile Include="Servicecs\Network\ClientNetworkConnector.cs" />
+    <Compile Include="Servicecs\Network\Pubsub.cs" />
+    <Compile Include="Servicecs\Network\Match.cs" />
+    <Compile Include="Servicecs\Network\API.cs" />
+    <Compile Include="Servicecs\DataSetterExtend.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\SendCardUse.cs" />
+    <Compile Include="Servicecs\ResourceManager.cs" />
+    <Compile Include="Servicecs\Protocol\BaseProcess.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\SyncTime.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\UnknownProcess.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\BattleEndResult.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\AbstractBattleProcess.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\ReEnterRoomSuccess.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\IgnitionBomb.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\EmoticonUse.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\EnqueuedAction.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\BattleRoundResult.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\ValidateCard.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\Skill.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\AttackUnit.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\ElectricShock.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\AddElixir.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\Poison.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\UnitDeath.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\InvalidateCardUse.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\UpdateUnitAttackTime.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\BattleStartBoosterTime.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\BattleExtension.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\CardUseResult.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\BattleStart.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\EnterRoomFail.cs" />
+    <Compile Include="Servicecs\Protocol\Battle\BattleStartBefore.cs" />
+    <Compile Include="Servicecs\Protocol\Match\MatchingFailed.cs" />
+    <Compile Include="Servicecs\Protocol\Match\MatchingSuccess.cs" />
+    <Compile Include="Servicecs\Protocol\ProcessGenerator.cs" />
+    <Compile Include="Servicecs\Protocol\MessageAttribute.cs" />
+    <Compile Include="Servicecs\TODO.cs" />
+    <Compile Include="Servicecs\Utility.cs" />
+    <Compile Include="Servicecs\VOProvider_battle.cs" />
+    <Compile Include="Servicecs\VOProvider.properties.cs" />
+    <Compile Include="Servicecs\VOProvider_web.cs" />
+    <Compile Include="Servicecs\VOProvider.cs" />
+    <Compile Include="Servicecs\ProfileManager.cs" />
+    <Compile Include="Library\Animations\AnimationSet.cs" />
+    <Compile Include="Library\Animations\AnimationSetCompletedEventArgs.cs" />
+    <Compile Include="Library\Animations\AnimationSetState.cs" />
+    <Compile Include="Library\Animations\AnimationTask.cs" />
+    <Compile Include="Library\Animations\EffectAnimationDefinition.cs" />
+    <Compile Include="Library\Animations\EffectDirectPropertyChangeDefinition.cs" />
+    <Compile Include="Library\Animations\Effects\AnimationEffect.cs" />
+    <Compile Include="Library\Animations\Effects\Blur.cs" />
+    <Compile Include="Library\Animations\Effects\Saturation.cs" />
+    <Compile Include="Library\Animations\Expressions\CompositionExtensions.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionFunctions.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\BooleanNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\ColorNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\ExpressionNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\ExpressionNodeType.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\Matrix3x2Node.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\Matrix4x4Node.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\Matrix4x4Node.Subchannel.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\QuaternionNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\ScalarNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\ValueKeywordKind.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\Vector2Node.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\Vector3Node.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionNodes\Vector4Node.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionValues\ExpressionValues.Constant.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionValues\ExpressionValues.CurrentValue.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionValues\ExpressionValues.Reference.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionValues\ExpressionValues.StartingValue.cs" />
+    <Compile Include="Library\Animations\Expressions\ExpressionValues\ExpressionValues.Target.cs" />
+    <Compile Include="Library\Animations\Expressions\OperationType.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\AmbientLightReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\ColorBrushReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\DistantLightReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\DropShadowReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\InsetClipReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\InteractionTrackerReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\ManipulationPropertySetReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\NineGridBrushReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\PointerPositionPropertySetReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\PointLightReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\PropertySetReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\ReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\SpotLightReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\SurfaceBrushReferenceNode.cs" />
+    <Compile Include="Library\Animations\Expressions\ReferenceNodes\VisualReferenceNode.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.Blur.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.Fade.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.Light.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.Offset.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.Rotate.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.Saturation.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationExtensions.Scale.cs" />
+    <Compile Include="Library\Animations\Extensions\AnimationTools.cs" />
+    <Compile Include="Library\Animations\SurfaceLoader.cs" />
+    <Compile Include="Library\Behaviors\BehaviorBase.cs" />
+    <Compile Include="Library\Behaviors\Blur.cs" />
+    <Compile Include="Library\Behaviors\CompositionBehaviorBase.cs" />
+    <Compile Include="Library\Behaviors\CompositionBehaviorBase.nongeneric.cs" />
+    <Compile Include="Library\Behaviors\Fade.cs" />
+    <Compile Include="Library\Behaviors\FadeHeaderBehavior.cs" />
+    <Compile Include="Library\Behaviors\Light.cs" />
+    <Compile Include="Library\Behaviors\Offset.cs" />
+    <Compile Include="Library\Behaviors\QuickReturnHeaderBehavior.cs" />
+    <Compile Include="Library\Behaviors\Rotate.cs" />
+    <Compile Include="Library\Behaviors\Saturation.cs" />
+    <Compile Include="Library\Behaviors\Scale.cs" />
+    <Compile Include="Library\Behaviors\StickyHeaderBehavior.cs" />
+    <Compile Include="Library\Enums\EasingType.cs" />
+    <Compile Include="Library\Helpers\DispatcherHelper.cs" />
+    <Compile Include="Library\TitleBar\TitleBarExtensions.cs" />
+    <Compile Include="Library\Tree\LogicalTree.cs" />
+    <Compile Include="Library\Tree\VisualTree.cs" />
+    <Compile Include="Library\UI\Helper\DesignTimeHelpers.cs" />
+    <Compile Include="UX\Controls\RoundRectangle.xaml.cs">
+      <DependentUpon>RoundRectangle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Controls\UserInfoList.xaml.cs">
+      <DependentUpon>UserInfoList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Controls\RingProgress.xaml.cs">
+      <DependentUpon>RingProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Frame\RootFrame.xaml.cs">
+      <DependentUpon>RootFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Pages\UserStatePage.xaml.cs">
+      <DependentUpon>UserStatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Pages\LoadingPage.xaml.cs">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Pages\ProfileSelectPage.xaml.cs">
+      <DependentUpon>ProfileSelectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UX\Pages\HomePage.xaml.properties.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\BadgeLogo.scale-125.png" />
+    <Content Include="Assets\BadgeLogo.scale-150.png" />
+    <Content Include="Assets\BadgeLogo.scale-200.png" />
+    <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\thumbs\Invalid.png" />
+    <Content Include="Assets\thumbs\A10.png" />
+    <Content Include="Assets\thumbs\AnneMayer.png" />
+    <Content Include="Assets\thumbs\BlueBeetle.png" />
+    <Content Include="Assets\thumbs\CrossEyeAlpha.png" />
+    <Content Include="Assets\thumbs\CrossEyeBeta.png" />
+    <Content Include="Assets\thumbs\Daniel.png" />
+    <Content Include="Assets\thumbs\Dry.png" />
+    <Content Include="Assets\thumbs\Fear.png" />
+    <Content Include="Assets\thumbs\JillMckellen.png" />
+    <Content Include="Assets\thumbs\Leny.png" />
+    <Content Include="Assets\thumbs\Leo.png" />
+    <Content Include="Assets\thumbs\MeiXile.png" />
+    <Content Include="Assets\thumbs\Pray.png" />
+    <Content Include="Assets\thumbs\Type5.png" />
+    <Content Include="Assets\thumbs\Zion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Library\UI\RadialProgressBar\RadialProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Library\UI\RangeSelector\RangeSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Library\UI\TabView\TabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Library\UI\GridSplitter\GridSplitter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\Themes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UX\Controls\RoundRectangle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UX\Controls\UserInfoList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UX\Controls\RingProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UX\Frame\RootFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UX\Pages\UserStatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UX\Pages\LoadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UX\Pages\ProfileSelectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UX\Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dwrandaz.AutoUpdateComponent">
+      <Version>1.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Schema">
+      <Version>4.6.8</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.23.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AkaConfig\AkaConfig.csproj">
+      <Project>{ccbc2fe5-2437-4020-ad14-7e7200aafbc5}</Project>
+      <Name>AkaConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaData\AkaData.csproj">
+      <Project>{96e80ddc-a4de-408d-80a9-d0671f264bd8}</Project>
+      <Name>AkaData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaDB\AkaDB.csproj">
+      <Project>{047774ee-a271-47a8-b118-11e19f38ef04}</Project>
+      <Name>AkaDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaEnum\AkaEnum.csproj">
+      <Project>{a88c4f0f-dd1a-419f-93e9-d83668b12f8d}</Project>
+      <Name>AkaEnum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaRedis\AkaRedis.csproj">
+      <Project>{9855e5ea-9bd4-46ef-8c63-58e3ba7391f5}</Project>
+      <Name>AkaRedis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaSerializer\AkaSerializer.csproj">
+      <Project>{984505ed-88e6-4ae2-8eea-780f4f65fcbf}</Project>
+      <Name>AkaSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaThreading\AkaThreading.csproj">
+      <Project>{0ffced2c-7ffd-4abc-93f5-77f6dd6054ce}</Project>
+      <Name>AkaThreading</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaUtility\AkaUtility.csproj">
+      <Project>{C098B259-038B-4830-B9F0-736AEE09981C}</Project>
+      <Name>AkaUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonProtocol\CommonProtocol.csproj">
+      <Project>{0f00942d-3ea2-47b8-9677-19cbc149c9b3}</Project>
+      <Name>CommonProtocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{711cc5e1-9ab1-4910-bd90-54e0454b2e77}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="akastudio.pfx" />
+    <None Include="Assets\Configs\DB\Business\flyway_accounts.conf" />
+    <None Include="Assets\Configs\DB\Business\flyway_game.conf" />
+    <None Include="Assets\Configs\DB\Business\flyway_gmtool.conf" />
+    <None Include="Assets\Configs\DB\Business\my.cnf" />
+    <None Include="Assets\Configs\DB\Dev1\flyway_account.conf" />
+    <None Include="Assets\Configs\DB\Dev1\flyway_accounts.conf" />
+    <None Include="Assets\Configs\DB\Dev1\flyway_game.conf" />
+    <None Include="Assets\Configs\DB\Dev1\flyway_gmtool.conf" />
+    <None Include="Assets\Configs\DB\Dev1\my.cnf" />
+    <None Include="Assets\Configs\DB\Dev2\flyway_accounts.conf" />
+    <None Include="Assets\Configs\DB\Dev2\flyway_game.conf" />
+    <None Include="Assets\Configs\DB\Dev2\flyway_gmtool.conf" />
+    <None Include="Assets\Configs\DB\Joyone\flyway_game.conf" />
+    <None Include="Assets\Configs\DB\Joyone\flyway_game_acc.conf" />
+    <None Include="Assets\Configs\DB\Joyone\flyway_gmtool.conf" />
+    <None Include="Assets\Configs\DB\QA\my.cnf" />
+    <Content Include="Assets\Configs\Server\Bongpalman\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Bongpalman\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Bongpalman\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Bongpalman\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Bongpalman\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev1\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev1\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev1\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev1\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev1\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev2\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev2\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev2\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev2\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dev2\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dohyun\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dohyun\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dohyun\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dohyun\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dohyun\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dylan2\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dylan2\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dylan2\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dylan2\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Dylan2\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\JoyOne\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\JoyOne\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\JoyOne\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\JoyOne\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\JoyOne\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Machance\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Machance\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Machance\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Machance\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Machance\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Milkman\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Milkman\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Milkman\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Milkman\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Milkman\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Tiger\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Tiger\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Tiger\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Tiger\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Tiger\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Live\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Live\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Live\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Live\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Live\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\Live\TriggerServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\MacOS\BattleServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\MacOS\CommonServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\MacOS\GameServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\MacOS\MatchingServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\MacOS\PubSubServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Configs\Server\MacOS\TriggerServerConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Assets\Configs\Test\Dev2.runsettings" />
+    <None Include="Assets\Configs\Test\Dylan2.runsettings" />
+    <None Include="Assets\Configs\Test\JoyOne.runsettings" />
+    <None Include="Assets\Configs\Test\Machance.runsettings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Servicecs\Protocol\Battle\notimpl\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWP|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\TestUWP\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWP|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\TestUWP\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWP|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\TestUWP\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWP|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\TestUWP\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWPRelease|x86'">
+    <OutputPath>bin\x86\TestUWPRelease\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWPRelease|ARM'">
+    <OutputPath>bin\ARM\TestUWPRelease\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWPRelease|ARM64'">
+    <OutputPath>bin\ARM64\TestUWPRelease\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWPRelease|x64'">
+    <OutputPath>bin\x64\TestUWPRelease\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy /E /Y /I "$(SolutionDir)\Config\*.*" "$(ProjectDir)\Assets\Configs\"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

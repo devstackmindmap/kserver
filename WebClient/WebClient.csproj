@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B87B2A4C-74B1-4015-8779-76E2BC871B8A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WebClient</RootNamespace>
+    <AssemblyName>WebClient</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PublishOnly|AnyCPU'">
+    <OutputPath>bin\PublishOnly\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWP|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestUWP\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWPRelease|AnyCPU'">
+    <OutputPath>bin\TestUWPRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenario\TestScenario.cs" />
+    <Compile Include="WebRequests\Product\WebProductBuyRealClient.cs" />
+    <Compile Include="WebRequests\PushKey\WebPushKeyUpdateClient.cs" />
+    <Compile Include="WebRequests\PushKey\WebPushAgreeUpdateClient.cs" />
+    <Compile Include="WebRequests\PushKey\WebNightPushAgreeUpdateClient.cs" />
+    <Compile Include="WebRequests\Clan\WebClanProfileModifyTest.cs" />
+    <Compile Include="WebRequests\Clan\WebClanModifyMemberGradeClient.cs" />
+    <Compile Include="WebRequests\Clan\WebClanSearchClient.cs" />
+    <Compile Include="WebRequests\Clan\WebClanBanishClient.cs" />
+    <Compile Include="WebRequests\Clan\WebClanOutClient.cs" />
+    <Compile Include="WebRequests\Clan\WebGetClanProfileClient.cs" />
+    <Compile Include="WebRequests\Clan\WebGetClanProfileAndMembersClient.cs" />
+    <Compile Include="WebRequests\Clan\WebClanJoinClient.cs" />
+    <Compile Include="WebRequests\Clan\WebClanJoinByCodeClient.cs" />
+    <Compile Include="WebRequests\Test.cs" />
+    <Compile Include="WebRequests\Clan\WebGetClanRecommendClient.cs" />
+    <Compile Include="WebRequests\RankingBoard\WebGetRankingBoardUnitClient.cs" />
+    <Compile Include="WebRequests\RankingBoard\WebGetRankingBoardClinet.cs" />
+    <Compile Include="WebRequests\RankingBoard\WebGetRankingBoardClanClinet.cs" />
+    <Compile Include="WebRequests\Product\WebProductBuyDigitalClient.cs" />
+    <Compile Include="WebRequests\Product\WebCheckReceiptClient.cs" />
+    <Compile Include="WebRequests\WebEventChallengeRewardResetClient.cs" />
+    <Compile Include="WebRequests\WebChallengeRewardResetClient.cs" />
+    <Compile Include="WebRequests\WebGetEventChallengeFirstClearUserClient.cs" />
+    <Compile Include="WebRequests\WebGetChallengeStageListClient.cs" />
+    <Compile Include="WebRequests\WebGetChallengeFirstClearUserClient.cs" />
+    <Compile Include="WebRequests\WebMailDeleteAllClient.cs" />
+    <Compile Include="WebRequests\WebMailUpdateSystem.cs" />
+    <Compile Include="WebRequests\WebMailUpdatePrivate.cs" />
+    <Compile Include="WebRequests\WebMailUpdatePublic.cs" />
+    <Compile Include="WebRequests\WebMailReadAllClient.cs" />
+    <Compile Include="WebRequests\WebMailReadClient.cs" />
+    <Compile Include="WebRequests\WebServerStatusClient.cs" />
+    <Compile Include="WebRequests\WebGetCouponRewardClient.cs" />
+    <Compile Include="WebRequests\WebGetChattingMessageClient.cs" />
+    <Compile Include="WebRequests\WebSetChattingMessageClient.cs" />
+    <Compile Include="WebRequests\WebGetBattleServerClient.cs" />
+    <Compile Include="WebRequests\WebGetSeasonRewardClient.cs" />
+    <Compile Include="WebRequests\WebSkinPutOnClient.cs" />
+    <Compile Include="WebRequests\WebGetUserProfileClient.cs" />
+    <Compile Include="WebRequests\WebGetCardProfileClient.cs" />
+    <Compile Include="WebRequests\WebAccountJoinClient.cs" />
+    <Compile Include="WebRequests\Friend\WebRemoveFriendClient.cs" />
+    <Compile Include="WebRequests\Friend\WebRejectFriendByRequestedClient.cs" />
+    <Compile Include="WebRequests\Friend\WebAddFriendByRequestedClient.cs" />
+    <Compile Include="WebRequests\Friend\WebAddFriendByInviteCodeClient.cs" />
+    <Compile Include="WebRequests\Friend\WebGetFriendInfoClient.cs" />
+    <Compile Include="WebRequests\WebInfusionBoxOpenClient.cs" />
+    <Compile Include="WebRequests\Friend\WebGetFriendCodeClient.cs" />
+    <Compile Include="WebRequests\Clan\WebClanCreateClient.cs" />
+    <Compile Include="WebRequests\WebGetUnitProfileClient.cs" />
+    <Compile Include="WebRequests\WebGetAdditionalUserInfoClient.cs" />
+    <Compile Include="WebRequests\Clan\WebGetClanInviteCodeClient.cs" />
+    <Compile Include="WebRequests\Product\WebGetProductsClient.cs" />
+    <Compile Include="WebRequests\WebUserInfoChangeClient.cs" />
+    <Compile Include="WebRequests\WebTestClient.cs" />
+    <Compile Include="WebRequests\Friend\WebRequestFriendClient.cs" />
+    <Compile Include="WebRequests\WebLoginClient.cs" />
+    <Compile Include="WebRequests\WebLevelUpClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AkaEnum\AkaEnum.csproj">
+      <Project>{A88C4F0F-DD1A-419F-93E9-D83668B12F8D}</Project>
+      <Name>AkaEnum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaSerializer\AkaSerializer.csproj">
+      <Project>{8f2894ad-92ae-4b50-b1f6-4bec9bff00c8}</Project>
+      <Name>AkaSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaUtility\AkaUtility.csproj">
+      <Project>{c098b259-038b-4830-b9f0-736aee09981c}</Project>
+      <Name>AkaUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonProtocol\CommonProtocol.csproj">
+      <Project>{0F00942D-3EA2-47B8-9677-19CBC149C9B3}</Project>
+      <Name>CommonProtocol</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

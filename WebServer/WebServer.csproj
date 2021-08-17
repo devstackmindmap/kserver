@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Configurations>Debug;Release;PublishOnly;TestUWP;TestUWPRelease</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="NLog.Schema" Version="4.6.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AkaConfig\AkaConfig.csproj" />
+    <ProjectReference Include="..\AkaData\AkaData.csproj" />
+    <ProjectReference Include="..\AkaDB\AkaDB.csproj" />
+    <ProjectReference Include="..\AkaEnum\AkaEnum.csproj" />
+    <ProjectReference Include="..\AkaRedisLogic\AkaRedisLogic.csproj" />
+    <ProjectReference Include="..\AkaRedis\AkaRedis.csproj" />
+    <ProjectReference Include="..\CommonProtocol\CommonProtocol.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\WebLogic\WebLogic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

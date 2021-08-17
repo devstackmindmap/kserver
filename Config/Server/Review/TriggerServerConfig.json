@@ -1,0 +1,86 @@
+{
+  "TriggerServerPort" : 40694,
+  "ServerInfoCheckInterval" : 5,
+  "TriggerPubServer" : 
+  {
+    "ip" : "review-ios.akastudio.co.kr",
+    "port" : 40594,
+    "tryReconnectTime" : 5000,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "ServerConfig" : 
+  {
+    "ListenBacklog" : 1024,
+    "KeepAliveTime" : 30,
+    "MaxConnectionNumber" : 3000,
+    "ReceiveBufferSize" : 4096,
+    "MaxRequestLength" : 1024,
+    "SendBufferSize" : 4096,
+    "SendingQueueSize" : 512,
+    "LogAllSocketException" : true,
+    "LogBasicSessionActivity" : true,
+    "LogCommand" : true,
+    "ClearIdleSession" : true,
+    "ClearIdleSessionInterval" : 120,
+    "IdleSessionTimeOut" : 600,
+    "SyncSend" : false
+  }, 
+  "RootConfig" : 
+  {
+    "MaxCompletionPortThreads" : 500,
+    "MinWorkingThreads" : 100,
+    "MaxWorkingThreads" : 500,
+    "DisablePerformanceDataCollector" : true,
+    "MultiCount" : 200
+  },
+  "BattleServerList":{
+    "port":30654,
+    "tryConnectionWaitingTime":3000,
+    "countryIps" : {
+      "1":[
+        "review-ios.akastudio.co.kr",
+        "review-ios.akastudio.co.kr"
+      ],
+      "2":[
+        "review-ios.akastudio.co.kr",
+        "review-ios.akastudio.co.kr"
+      ],
+      "3":[
+        "review-ios.akastudio.co.kr",
+        "review-ios.akastudio.co.kr"
+      ],
+      "4":[
+        "review-ios.akastudio.co.kr",
+        "review-ios.akastudio.co.kr"
+      ]
+    }
+  },
+  "PubSubServerList":{
+    "port":40594,
+    "tryConnectionWaitingTime":3000,
+    "countryIps" : {
+      "1":[
+        "review-ios.akastudio.co.kr"
+      ]
+    }
+  },
+  "TriggerRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "review-ios.akastudio.co.kr",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  }
+}

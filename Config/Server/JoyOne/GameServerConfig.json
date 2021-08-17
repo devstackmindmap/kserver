@@ -1,0 +1,100 @@
+{
+  "GameServerPort" : 40654,
+  "BattleServerPort" : 30654,
+  "PubSubServerPort" : 40594,
+  "WebPubServer" : 
+  {
+    "ip" : "172.30.1.224",
+    "port" : 40594,
+    "tryReconnectTime" : 5000,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "TriggerServer" : 
+  {
+    "ip" : "172.30.1.224",
+    "port" : 40694,
+    "tryReconnectTime" : 5000,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "MatchingServer" : 
+  {
+    "ip" : "172.30.1.224",
+    "port" : 40554,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "GameDBSetting" : 
+  {
+    "UserDBShardRange" : 3000000,
+    "AccountDBSetting" : 
+    {
+      "user": "root",
+      "password": "aka10",
+      "database": "account",
+      "host": "172.30.1.224",
+      "port": 3306,
+      "charset": "utf8"
+    },
+    "UserDBSetting" : 
+    {
+      "0" : 
+      {
+        "user": "root",
+        "password": "aka10",
+        "database": "knightrun",
+        "host": "172.30.1.224",
+        "port": 3306,
+        "charset": "utf8"
+      }
+    }
+  },
+  "GameRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "172.30.1.224",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "aka10"
+  },
+  "MatchingServerList":{
+    "1" : {
+      "1" : {
+        "ip" : "172.30.1.224",
+        "port" : 40554
+      },
+      "2" : {
+        "ip" : "172.30.1.224",
+        "port" : 40555
+      },
+      "3" : {
+        "ip" : "172.30.1.224",
+        "port" : 40556
+      }
+    },
+    "2" : {
+      "1" : {
+        "ip" : "172.30.1.224",
+        "port" : 40554
+      }
+    }
+  },
+  "InAppUrl" : "http://inappcheck.akastudio.co.kr:3000/inappcheck"
+}

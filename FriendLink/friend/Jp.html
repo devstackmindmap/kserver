@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Knight Run Reconquista </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"> 
+       <meta name="description" content="Knightrunでお友達とご一緒にお楽しみください。">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"> 
+        <meta itemprop="name" content="友達からの要請 - Knightrun Reconquista">
+        <meta itemprop="image" content="http://download-dev.akastudio.co.kr/Inv/images/KnightRun_Invite-Friends_BG02.png">
+        <meta property="og:title" content="友達からの要請 - Knightrun Reconquista" />
+        <meta property="og:description" content="Knightrunでリンクを開くかゲームをダウンロードしてください。" />
+        <meta property="og:image" content="http://download-dev.akastudio.co.kr/Inv/images/KnightRun_Invite-Friends_BG02.png" />  
+		<link rel="image_src" href="http://download-dev.akastudio.co.kr/Inv/images/KnightRun_Invite-Friends_BG01.png" />
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+	body {
+	height: 100vh;
+/*	background: url("./images/bg.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background: url("../images/bg.png") no-repeat center/cover;*/
+	}
+	img{
+	align="center";
+}
+img[usemap] {
+	border:none;
+	height:auto;
+	max-width:100%;
+	width:auto;
+	
+}
+
+p{
+	text-align:center;
+}
+
+.btn {cursor:pointer;}
+
+select { 
+	-webkit-appearance: none;  
+	-moz-appearance: none; 
+	appearance: none;  
+	z-index: 1; 
+    color:navy;
+    opacity: 1;
+    display: block;
+    width: auto;
+    height: 20px;
+    z-index: 52;
+
+}
+
+</style>
+
+<script type="text/javascript">
+
+var getParameters = function (paramName) {
+    var returnValue;
+    var url = location.href;
+    var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+
+    for (var i = 0; i < parameters.length; i++) {
+        var varName = parameters[i].split('=')[0];
+        if (varName.toUpperCase() == paramName.toUpperCase()) {
+            returnValue = parameters[i].split('=')[1];
+            return decodeURIComponent(returnValue);
+        }
+    }
+};
+
+
+var linkBtn = function () {
+/*	var url = "https://knightrunreconquista.page.link/addfriend?token="+getParameters("token"); */
+	var url = "https://knightrunreconquista.page.link/?link=https://knightrunreconquista.page.link/addfriend?token="+getParameters("token")+"&apn=com.AKAStudio.KnightRun&isi=1490388131&ibi=com.akastudiocorp.knightrun"
+
+	window.open(url,"_blank","resizable,scrollbars,status");
+
+}
+
+$(document).ready(function() {
+	
+	$(this).on('change', '#lang', function() {
+		$('.contents').hide();
+		_id = $('#lang option:selected').val();
+		
+		if( _id == "ko") window.location = "http://download-dev.akastudio.co.kr/Inv/friend/kr.html?token="+getParameters("token");
+		if( _id == "en") window.location = "http://download-dev.akastudio.co.kr/Inv/friend/en.html?token="+getParameters("token");
+		if( _id == "jp") window.location = "http://download-dev.akastudio.co.kr/Inv/friend/jp.html?token="+getParameters("token");
+
+	});
+
+	
+//	initPage();	
+});
+
+function initPage()
+{
+	var _lang = getParameters("lang");
+
+
+	if ( _lang == undefined ) _lang = "jp";
+
+	$('#lang').val(_lang).change();
+
+}
+
+
+
+</script>
+
+
+<body>
+<p>
+
+<div>
+
+<select id="lang" style="left:70px; top: 42px; position: fixed;"  >
+	<option>Language</option>
+	<option value="jp">Japan</option>
+	<option value="ko">Korean</option>	
+	<option value="en">English</option>
+</select>
+
+<img alt="KnightRun invate"  src="../images/KnightRun_Invite-Friends_BG.png"  usemap="#image-map" height="657" width="1131" /></p>
+<map name="image-map">
+	<area target="" alt="Knightrun招待" title="Knightrun招待" href="" coords="334, 391, 804, 502" shape="rect" onclick="linkBtn();" >
+</map>
+
+</div>
+
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+<script src="http://mattstow.com/experiment/responsive-image-maps/jquery.rwdImageMaps.min.js"></script> 
+<script> 
+(function($){ 
+$(document).ready(function(e) { 
+$('img[usemap]').rwdImageMaps(); 
+
+}); 
+})(jQuery); 
+
+
+
+</script>
+
+
+</html>

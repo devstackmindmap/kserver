@@ -1,0 +1,6 @@
+DROP TABLE  IF EXISTS `accounts`;
+DROP PROCEDURE IF EXISTS `p_getAccount`;
+
+DROP TABLE  IF EXISTS `_store`;
+DROP TABLE  IF EXISTS `_items`;
+DROP TABLE  IF EXISTS `_schedules`;

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AkaData\AkaData.csproj" />
+    <ProjectReference Include="..\AkaDB\AkaDB.csproj" />
+    <ProjectReference Include="..\AkaEnum\AkaEnum.csproj" />
+    <ProjectReference Include="..\AkaUtility\AkaUtility.csproj" />
+  </ItemGroup>
+
+</Project>

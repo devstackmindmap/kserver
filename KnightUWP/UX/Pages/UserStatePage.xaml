@@ -1,0 +1,281 @@
+﻿<Page
+    x:Class="KnightUWP.UX.Pages.UserStatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KnightUWP.UX.Pages"
+    xmlns:control="using:KnightUWP.UX.Controls"
+    xmlns:service="using:KnightUWP.Servicecs"
+    xmlns:dao="using:KnightUWP.Dao"
+    xmlns:mscontrol="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:protocol="using:KnightUWP.Servicecs.Protocol"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <!-- TODO global resource-->
+        <service:MessageTypeToColorConverter x:Key="MessageTypeToColorConverter"/>
+        <service:CardStatIdToName x:Key="CardStatIdToName"/>
+        <service:CardColorConverter x:Key="CardColorConverter"/>
+
+        
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
+
+            <ListView 
+                  FocusVisualPrimaryThickness="0,0,0,0" FocusVisualSecondaryThickness="0,0,0,0"  Margin="0,10,0,0"
+                  ItemsSource="{Binding CurrentBattleInfo.MyUnits}" >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="dao:UnitInfo">
+                        <StackPanel Orientation="Vertical" >
+                            <StackPanel Orientation="Horizontal" >
+                                <Image  Source="{Binding Image}"  Stretch="None" HorizontalAlignment="Left" />
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="UnitId: " HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="Level: " HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="IsDeath: " HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="HP: " HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="Shield: " HorizontalAlignment="Right" FontSize="10" />
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical"  Margin="5,0,0,0">
+                                    <TextBlock Text="{Binding UnitId}" HorizontalAlignment="Left" FontSize="10" />
+                                    <TextBlock Text="{Binding Level}" HorizontalAlignment="Left" FontSize="10" />
+                                    <TextBlock Text="{Binding IsDeath}" HorizontalAlignment="Left" FontSize="10" />
+                                    <TextBlock Text="{Binding Hp, Mode=OneWay}" HorizontalAlignment="Left" FontSize="10"  />
+                                    <TextBlock Text="{Binding Shield, Mode=OneWay}" HorizontalAlignment="Left" FontSize="10" />
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Skin}" HorizontalAlignment="Left" FontSize="10" />
+                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+            
+            <!-- userinfo -->
+            <StackPanel Orientation="Vertical" Margin="10,10,0,0" Padding="10">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="UserId:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding accounts.userId}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="닉네임:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding accounts.nickName}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="레벨:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding users.level}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="max랭크레벨:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding accounts.maxRankLevel}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="랭크포인트:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding accounts.currentSeasonRankPoint}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="최대지연율:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding MaxLatency}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="평균지연율:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding AverageLatency}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11"  Text="전투시간:"/>
+                    <TextBlock HorizontalAlignment="Left" FontSize="11" Text="{Binding CurrentBattleInfo.BattleTime}" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right">
+
+            <ListView 
+                  FocusVisualPrimaryThickness="0,0,0,0" FocusVisualSecondaryThickness="0,0,0,0"  Margin="5,10,5,0"
+                  ItemsSource="{Binding CurrentBattleInfo.EnemyUnits}" >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="dao:UnitInfo">
+                        <StackPanel Orientation="Vertical" >
+                            <StackPanel Orientation="Horizontal" >
+                                <StackPanel Orientation="Vertical"  Margin="0,0,5,0">
+                                    <TextBlock Text="{Binding UnitId}" HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="{Binding Level}" HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="{Binding IsDeath, Mode=OneWay}" HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="{Binding Hp, Mode=OneWay}" HorizontalAlignment="Right" FontSize="10" />
+                                    <TextBlock Text="{Binding Shield, Mode=OneWay}" HorizontalAlignment="Right" FontSize="10"  />
+
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text=":UnitId" HorizontalAlignment="Left" FontSize="10" />
+                                    <TextBlock Text=":Level" HorizontalAlignment="Left" FontSize="10" />
+                                    <TextBlock Text=":IsDeath" HorizontalAlignment="Left" FontSize="10" />
+                                    <TextBlock Text=":HP" HorizontalAlignment="Left" FontSize="10" />
+                                    <TextBlock Text=":Shield" HorizontalAlignment="Left" FontSize="10" />
+                                </StackPanel>
+                                <Image  Source="{Binding Image}"  Stretch="None" HorizontalAlignment="Right" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding Skin}" HorizontalAlignment="Right" FontSize="10" />
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+            <!-- enemy userinfo -->
+            <StackPanel Orientation="Vertical" Margin="0,10,10,0" Padding="10" HorizontalAlignment="Right" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11" Text="{Binding EnemyUserId}" />
+                    <TextBlock HorizontalAlignment="Left" FontSize="11"  Text=":UserId"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11" Text="{Binding EnemyNickName}" />
+                    <TextBlock HorizontalAlignment="Left" FontSize="11"  Text=":닉네임"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Right" FontSize="11" Text="{Binding EnemyRankPoint}" />
+                    <TextBlock HorizontalAlignment="Left" FontSize="11"  Text=":랭크포인트"/>
+                </StackPanel>
+
+
+            </StackPanel>
+            
+            
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"  Orientation="Horizontal" Height="80" Margin="30,0,30,0">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="80">
+                <mscontrol:RadialProgressBar Foreground="Indigo" Thickness="20" Minimum="0" Maximum="10" Width="70" Height="70" Outline="LightSkyBlue" 
+                                             Value="{Binding CurrentBattleInfo.Elixir, Mode=OneWay}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CurrentBattleInfo.Elixir, Mode=OneWay}" />
+            </Grid>
+            <Grid Height="80">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <control:RoundRectangle Grid.Column="0" XRadius="15" YRadius="15" 
+                                        BrushColor="{Binding CurrentBattleInfo.NextCard, Converter={StaticResource CardColorConverter},ConverterParameter=0}" 
+                                        Margin="2" FontSize="11"
+                                        Title="{Binding CurrentBattleInfo.Card1, Converter={StaticResource CardStatIdToName}}" />
+                <control:RoundRectangle Grid.Column="1" XRadius="15" YRadius="15" 
+                                        BrushColor="{Binding CurrentBattleInfo.NextCard, Converter={StaticResource CardColorConverter},ConverterParameter=1}" 
+                                        Margin="2" FontSize="11"
+                                        Title="{Binding CurrentBattleInfo.Card2, Converter={StaticResource CardStatIdToName}}" />
+                <control:RoundRectangle Grid.Column="2" XRadius="15" YRadius="15" 
+                                        BrushColor="{Binding CurrentBattleInfo.NextCard, Converter={StaticResource CardColorConverter},ConverterParameter=2}" 
+                                        Margin="2" FontSize="11"
+                                        Title="{Binding CurrentBattleInfo.Card3, Converter={StaticResource CardStatIdToName}}" />
+                <control:RoundRectangle Grid.Column="3" XRadius="15" YRadius="15" 
+                                        BrushColor="{Binding CurrentBattleInfo.NextCard, Converter={StaticResource CardColorConverter},ConverterParameter=3}" 
+                                        Margin="2" FontSize="11"
+                                        Title="{Binding CurrentBattleInfo.Card4, Converter={StaticResource CardStatIdToName}}" />
+                
+            </Grid>
+        </StackPanel>
+        
+        <ListView x:Name="BattleHisotriyList" Grid.Column="1" Grid.Row="0"
+                  FocusVisualPrimaryThickness="0,0,0,0" FocusVisualSecondaryThickness="0,0,0,0" 
+                  VerticalContentAlignment="Stretch"  
+                  ItemsSource="{Binding CurrentBattleInfo.VisibileHistory}" ContainerContentChanging="BattleHisotriy_ContainerContentChanging" SelectionChanged="BattleHisotriyList_SelectionChanged">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel VerticalAlignment="Bottom" ItemsUpdatingScrollMode="KeepLastItemInView"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="protocol:AbstractBattleProcess">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Width="20" FontSize="10"
+                                       Text="{Binding Index}" />
+
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="40" Padding="0,0,8,0"
+                                       FontSize="10"
+                                       Text="{Binding EventTimeString}" />
+                                
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="10"  Text="N:" />
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="10" Text="{Binding LastLatency}" />
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="10" Margin="5,0,0,0" Text="A:" />
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="11" Text="{Binding EverageLatency}" />
+                                </StackPanel>
+                            </StackPanel>                            
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="{Binding Performer}"
+                                    Padding="10,0,15,0" >
+                            <control:RoundRectangle Grid.Column="0" XRadius="10" YRadius="10" 
+                                                    BrushColor="{x:Bind MessageType, Converter={StaticResource MessageTypeToColorConverter}}" 
+                                                    Title="{x:Bind MessageType}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="{Binding Performer}" 
+                                    Padding="10,0,10,0" Orientation="Horizontal">
+                            <TextBlock FontSize="11" Text="{Binding LeftSideMessage}" />
+                            <TextBlock Padding="10,0,10,0" FontSize="11" Text="{Binding CenterMessage}" />
+                            <TextBlock FontSize="11" Text="{Binding RightSideMessage}" />
+                        </StackPanel>
+                        
+                        <!--
+                        <TextBlock Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{Binding joinDateTime}" />
+
+                        <TextBlock Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{Binding joinDateTime}" />
+
+-->
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="8,0,0,0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</Page>

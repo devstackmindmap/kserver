@@ -1,0 +1,5 @@
+ALTER TABLE `users`
+	ADD COLUMN `gemPaid` INT(11) NOT NULL DEFAULT 0 AFTER `gem`;
+
+ALTER TABLE `users`
+	ADD COLUMN `starCoin` INT(11) NOT NULL DEFAULT 0 AFTER `gemPaid`;

@@ -1,0 +1,3 @@
+ALTER TABLE `battle_records`
+    ADD COLUMN `isHost` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `battleEndTime`,
+    ADD COLUMN `battleInfo` BLOB NULL DEFAULT NULL  AFTER `isHost`;

@@ -1,0 +1,6 @@
+﻿
+<select class="selectpicker" id="userInfoType" name="userInfoType" ng-model="selectedUserInfoType" {% if onUserInfoTypeChange %} ng-change="onUserInfoTypeChange(selectedUserInfoType)" {% endif %}>
+	<option value="" disabled>선택하세요</option>
+    <option value="allUser">동의한 전체유저</option>
+    <option value="LastLogin">마지막 접속일</option>
+</select>

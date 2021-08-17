@@ -1,0 +1,1 @@
+UPDATE units SET rankLevel=1 WHERE rankLevel=0;

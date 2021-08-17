@@ -1,0 +1,2 @@
+INSERT INTO `_common` (`commonId`, `commonValue`, `commonValue2`, `commonValue3`, `commonValue4`, `commonValue5`, `commonValue6`, `commonBeforeStartDateTime`, `commonStartDateTime`, `commonNextStartDateTime`) 
+VALUES (4, 1, 0, 0, 1, 2020, 1, '2020-03-15 14:34:54', '2020-04-15 02:00:00', '2020-06-15 02:00:00');

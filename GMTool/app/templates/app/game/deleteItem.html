@@ -1,0 +1,61 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container" ng-controller="userInfoController" >
+	{% include 'app/partial/insertItemPart.html' with onUserInfoTypeChange="onUserInfoTypeChange()" %}
+
+	<br />
+	<h4>전체 아이템 지급/삭제</h4>
+	<div class="panel panel-default" >
+		<div class="panel-body" id="divAddUserInfo">
+			<div ng-switch="selectedUserInfoType">
+
+				<div ng-switch-when="units">
+					<div class="form-group">
+						<label class="control-label">유닛 아이디:</label><br />
+						<input type="number" class="form-control" id="units_unitId" />
+					</div>
+				</div>
+				<div ng-switch-when="cards">
+					<div class="form-group">
+						<label class="control-label">카드 아이디:</label><br />
+						<input type="number" class="form-control" id="cards_cardId" />
+					</div>				
+				</div>
+				<div ng-switch-when="armors">
+					<div class="form-group">
+						<label class="control-label">갑옷 아이디:</label><br />
+						<input type="number" class="form-control" id="armors_id" />
+					</div>				
+				</div>
+				<div ng-switch-when="weapons">
+					<div class="form-group">
+						<label class="control-label">무기 아이디:</label><br />
+						<input type="number" class="form-control" id="weapons_id" />
+					</div>				
+				</div>
+                <div ng-switch-when="skin">
+					<div class="form-group">
+						<label class="control-label">스킨 아이디:</label><br />
+						<input type="number" class="form-control" id="skin_id" />
+					</div>				
+				</div>
+				
+			</div>
+
+			<div ng-if="selectedUserInfoType">
+				<div class="form-group">
+                    <input type="button" class="btn btn-primary" value="삭제" ng-click="deleteItem()" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/userInfo.js' %}"></script>"
+
+{% endblock %}

@@ -1,0 +1,422 @@
+<h1 id="tableLabel"> {{myid}}의 SquareObject</h1>
+
+
+<p *ngIf="!squareobjectlist"><em>Loading...</em></p>
+
+
+<div class='soleft' style="margin-left: 20px;" >
+<mat-form-field>
+  <mat-select name="runmodeList" [(value)]="selectedRunmode" placeholder="현재 {{activeRunmode}}">
+    <mat-option *ngFor="let runmode of runmodes" [value]="runmode" >
+      {{runmode}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+<div class='soleft' style="width:30px;"  >
+  <mat-spinner [diameter]="25" *ngIf="isDataLoading"></mat-spinner>
+  <p *ngIf="!isDataLoading"  style="width:80px; padding-right: 20px;">      </p>
+</div>
+
+<div class='soleft'  >
+  <button class="btn btn-primary" (click)="changeRunMode()">데이터 교체</button>
+</div>
+<div class='soleft' style="margin-left: 20px;"  >
+  <button class="btn btn-primary" (click)="newSo()">스퀘어 오브젝트 추가</button>
+</div>
+
+<div class='soleft' style="margin-right: 2rem;"><em>!데이터는 모든 유저가 공유</em></div>
+<div class='soleft'> 현재 시간 - {{ currentTime | date:'MM/dd HH:mm:ss'}} </div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="squareobjectlist">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>가동</th>
+      <th>습격이력</th>
+      <th>가동시간</th>
+      <th>보상가능</th>
+      <th>상세보기</th>
+      <th>Level</th>
+      <th>Exp</th>
+      <th>C.Level</th>
+      <th>C.Exp</th>
+      <th>A.Level</th>
+      <th>A.Exp</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let squareobject of squareobjectlist, let i = index">
+      <td>{{ squareobject.id }}</td>
+
+      <td *ngIf="squareobject.currentState.isActivated"> <mat-icon  [ngStyle]="{'color':'green'}">done</mat-icon> </td>
+      <td *ngIf="!squareobject.currentState.isActivated"> <mat-icon color='warn'>block</mat-icon> </td>
+
+      <td>{{ squareobject.currentState.invasionHistory.length }} 건</td>
+      <td>{{ toTime(squareobject.currentState.activatedTime) }}</td>
+      
+      <td *ngIf="squareobject.currentState.enableReward"> <mat-icon  [ngStyle]="{'color':'green'}">redeem</mat-icon> </td>
+      <td *ngIf="!squareobject.currentState.enableReward"> <mat-icon color='warn'>remove_shopping_cart</mat-icon> </td>
+
+
+      <td><button class="btn btn-primary" (click)="getSo(squareobject.id)">View</button></td>
+      <td>{{ squareobject.squareObjectLevel }}</td>
+      <td>{{ squareobject.squareObjectExp }}</td>
+      <td>{{ squareobject.coreLevel }}</td>
+      <td>{{ squareobject.coreExp }}</td>
+      <td>{{ squareobject.agencyLevel }}</td>
+      <td>{{ squareobject.agencyExp }}</td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<ng-container 
+*ngIf="!currentObject; then NotSelected; else Selected">
+</ng-container>
+
+<ng-template #NotSelected>
+  <div ><em>Not Selected...</em></div>
+</ng-template>
+
+<ng-template #Selected>
+  <div ><em>Selected {{ currentObject.id}}</em></div>
+
+  <div class="soleftex">
+    <table class='table table-striped soborder' aria-labelledby="tableLabel">
+      <thead>
+        <tr>
+          <th>파괴</th>
+          <th>가동레벨</th>
+          <th>습격레벨</th>
+          <th>습격시간</th>
+          <th>몬스터</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          
+          <td *ngIf="currentObject.currentState.currentShield <= 0"> <mat-icon color='warn'>check_circle_outline</mat-icon> </td>
+          <td *ngIf="currentObject.currentState.currentShield > 0"> <mat-icon  [ngStyle]="{'color':'green'}">highlight_off</mat-icon> </td>
+
+
+
+          <td>{{ currentObject.currentState.squareObjectLevel }}</td>
+          <td>{{ currentObject.currentState.nextInvasionLevel }}</td>
+          <td>{{ toTime(currentObject.currentState.nextInvasionTime) }}</td>
+          <td>{{ currentObject.currentState.nextInvasionMonsterId }}</td>
+        </tr>
+      </tbody>
+
+      <thead>
+        <tr>
+          <th>boxexp</th>
+          <th>box레벨</th>
+          <th>쉴드</th>
+          <th>파워</th>
+          <th>파워갱신시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ currentObject.currentState.currentPlanetBoxExp }}</td>
+          <td>{{ currentObject.currentState.currentPlanetBoxLevel }}</td>
+          <td>{{ currentObject.currentState.currentShield }}</td>
+          <td>{{ currentObject.currentState.squareObjectPower }}</td>
+          <td>{{ toTime(currentObject.currentState.powerRefreshTime) }}</td>
+        </tr>
+      </tbody>
+
+      <thead>
+        <tr>
+          <th>에너지</th>
+          <th>Ex에너지</th>
+          <th>에너지구매시간</th>
+          <th>에너지갱신시간</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ currentObject.currentState.coreEnergy }}</td>
+          <td>{{ currentObject.currentState.extraCoreEnergy }}</td>
+          <td>{{ toTime(currentObject.currentState.extraEnergyInjectedTime) }}</td>
+          <td>{{ toTime(currentObject.currentState.energyRefreshTime) }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+      
+      <thead>
+        <tr>
+          <th>도움주기</th>
+          <th>총 도움주기</th>
+          <th>도움받기</th>
+          <th>총 도움받기</th>
+          <th>소모된 티켓</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ currentObject.donate }}</td>
+          <td>{{ currentObject.totalDonate }}</td>
+          <td>{{ currentObject.help }}</td>
+          <td>{{ currentObject.totalHelp }}</td>
+          <td>{{ currentObject.usedTicket }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <ng-container 
+    *ngIf="true == currentObject.currentState.isActivated; then Activated; else NotActivated">
+    </ng-container>
+    <div><b>제어 동작</b></div>
+    <table class='table table-striped soborder' aria-labelledby="tableLabel">
+      <thead>
+        <tr *ngIf="currentObject.currentState.isActivated">          
+          <th>
+            <button class="btn btn-primary" (click)="stopSo(currentObject.id)">중지</button>
+          </th>
+          <!--TODO 보상 UI-->
+
+          <th>
+            <button class="btn btn-primary" [disabled]="disableEnergy()" (click)="powerSo(currentObject.id)">파워주입</button>
+          </th>
+          <th>
+            <button class="btn btn-primary" [disabled]="disableEnergy()" (click)="boxSo(currentObject.id)">상자주입</button>
+          </th>
+
+          <th>
+            <button class="btn btn-primary" [disabled]="currentObject.donate >= 10" (click)="donateSo(currentObject.id)">도움주기</button>
+            <!--TODO Counting UI-->
+          </th>
+          <th>
+            <button class="btn btn-primary" [disabled]="currentObject.help >= 10" (click)="helpSo(currentObject.id)">도움받기</button>
+            <!--TODO Counting UI-->
+          </th>
+        </tr>
+
+        <tr *ngIf="!currentObject.currentState.isActivated">      
+          <th>
+            <mat-form-field>
+              <mat-select [(value)]="selectedObjectLevel" placeholder="가동레벨">
+                <mat-option  *ngFor="let item of [].constructor(currentObject.squareObjectLevel);let i = index" [value]="i"   >
+                  {{i+1}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </th> 
+          <th>
+            <button class="btn btn-primary" [disabled]="currentObject.currentState.enableReward" (click)="startSo(currentObject.id)">가동</button>          
+          <!--TODO 보상 UI-->
+          <th>
+            <button class="btn btn-primary" [disabled]="!currentObject.currentState.enableReward" (click)="getreward(currentObject.id)">보상얻기</button>
+          </th>
+          
+          <th>
+            <button class="btn btn-primary" [disabled]="!currentObject.currentState.enableReward" (click)="restartSo(currentObject.id)">재가동</button>
+          </th>
+        </tr>     
+      </thead>
+    </table>
+    
+    <div><b>환경 제어</b></div>
+    <table class='table table-striped soborder'  aria-labelledby="tableLabel">
+      <thead>
+        <tr>
+          <th class="greyback">프리미엄</th>
+          <th>
+            <mat-slide-toggle [ngModel]="currentObject.isPremium" (click)="onChangePremium()" ></mat-slide-toggle>
+          </th>
+          <th  class="greyback">가상현재시간</th>
+          <th>{{  toTimeSpan() | date:'MM/dd HH:mm:ss'  }}</th>
+          <th class="greyback">현재시간</th>          
+          <th>{{ currentTime | date:'MM/dd HH:mm:ss'}}</th>
+        </tr>
+        <tr>
+          <th class="greyback">습격갱신</th>
+          <th>
+            <button mat-mini-fab color="primary" (click)="getSo(currentObject.id)" style="box-shadow: none;">
+              <mat-icon>autorenew</mat-icon>
+            </button>
+          </th>
+          <th class="greyback">시간관리</th>
+          <th>1m
+            <button mat-mini-fab color="primary" (click)="addTime(1)" style="box-shadow: none;">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="primary" (click)="addTime(-1)" style="margin-left: 5px; box-shadow: none;">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+          <th>10m
+            <button mat-mini-fab color="primary" (click)="addTime(10)" style="box-shadow: none;" >
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="primary" (click)="addTime(-10)" style="margin-left: 5px;box-shadow: none;" >
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+          <th>60m
+            <button mat-mini-fab color="primary" (click)="addTime(60)" style="box-shadow: none;" >
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="primary" (click)="addTime(-60)" style="margin-left: 5px;box-shadow: none;" >
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+        </tr>
+        <tr>
+          <th  colspan="6">에너지 갱신간격 {{ currentObject.energyCycle}}분 증가량{{currentObject.energyQuantity}} - 파워갱신간격:{{ currentObject.powerCycle }}분 감소량:{{currentObject.powerQuantity}}</th>
+        </tr>
+        <tr>
+          <th colspan="6" class="greyback" >경험치 기반 레벨관리 Object:{{ currentObject.squareObjectLevel }} Core:{{ currentObject.coreLevel }} Agency:{{ currentObject.agencyLevel }}</th>
+        </tr>
+        <tr>
+          
+          <th class="greyback">Level</th>
+          <th>
+            <button mat-mini-fab color="warn" (click)="levelup(0)" style="box-shadow: none;">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="leveldown(0)" style="margin-left: 5px; box-shadow: none;">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+          <th class="greyback">C.Level</th>
+          <th>
+            <button mat-mini-fab color="warn" (click)="levelup(1)" style="box-shadow: none;">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="leveldown(1)" style="margin-left: 5px; box-shadow: none;">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+          <th class="greyback">A.Level</th>
+          <th>
+            <button mat-mini-fab color="warn" (click)="levelup(2)" style="box-shadow: none;">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="leveldown(2)" style="margin-left: 5px; box-shadow: none;">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+        </tr>
+        
+        <tr>
+          <th colspan="6" class="greyback" >경험치 무시 강제 레벨관리</th>
+        </tr>
+        <tr>
+          
+          <th class="greyback">Level</th>
+          <th>
+            <button mat-mini-fab color="warn" (click)="forcelevelup(0)" style="box-shadow: none;">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="forceleveldown(0)" style="margin-left: 5px; box-shadow: none;">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+          <th class="greyback">C.Level</th>
+          <th>
+            <button mat-mini-fab color="warn" (click)="forcelevelup(1)" style="box-shadow: none;">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="forceleveldown(1)" style="margin-left: 5px; box-shadow: none;">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+          <th class="greyback">A.Level</th>
+          <th>
+            <button mat-mini-fab color="warn" (click)="forcelevelup(2)" style="box-shadow: none;">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="forceleveldown(2)" style="margin-left: 5px; box-shadow: none;">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+          </th>
+        </tr>
+      </thead>
+    </table>
+
+    <div><b>개체 관리</b></div>
+    <table class='table table-striped soborder' style='width:inherit;' aria-labelledby="tableLabel">
+      <tbody>
+        <tr>
+          <td>
+            <button class="btn btn-primary" (click)="removeSo()">삭제</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="soright">
+    <div >
+      <table class='table table-striped history soborder' >
+        <tr>
+          <th><em>습격기록 {{currentObject.currentState.invasionHistory.length}}건 </em></th>
+        </tr>
+      </table>
+      
+      
+      <table class='table table-striped history soleft soborder_reactive' style='width:100px;'>
+        <tr>
+          <th>재가동</th>
+        </tr>
+      </table>
+      <table class='table table-striped history soleft soborder_invade' style='width:100px;'>
+        <tr>
+          <th>방어실패</th>
+        </tr>
+      </table>
+      <table class='table table-striped history  soborder' style='width:100px;'>
+        <tr>
+          <th>방어성공</th>
+        </tr>
+      </table>
+    </div>
+    <div *ngFor="let history of currentObject.invasionHistory, let i = index">
+      <table class='table table-striped history {{ history.previousShield <= 0 ? "soborder_reactive" : history.previousShield > history.remainedShield ? "soborder_invade" : "soborder"}}' aria-labelledby="tableLabel">   
+        <thead>
+          <tr>
+            <th colspan="4"  class="greyback">
+            습격번호 {{currentObject.invasionHistory.length - i}}
+            </th>
+          </tr>
+          <tr>
+            <th>공격시간</th>
+            <th>쉴드</th>
+            <th>남은쉴드</th>
+            <th>파워</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ toTime(history.invasionTime) }}</td>
+            <td>{{ history.previousShield }}</td>
+            <td>{{ history.remainedShield }}</td>
+            <td>{{ history.power }}</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <th>몬스터</th>
+            <th>습격레벨</th>
+            <th>공격력</th>
+            <th>개체수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ history.monsterId }}</td>
+            <td>{{ history.invasionLevel }}</td>
+            <td>{{ history.monsterAtk }}</td>
+            <td>{{ history.monsterCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>

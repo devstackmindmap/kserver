@@ -1,0 +1,16 @@
+﻿<div class="form-group">
+	<lable class="control-label">서버 종류:</lable>
+	<br />
+	{% include 'app/partial/selectRunMode.html' with runModeDef="runMode" %}
+</div>
+
+<div class="form-group">
+	<lable class="control-label">삭제 선택:</lable>
+	<br />
+
+	{% if onUserInfoTypeChange %}
+		{% include 'app/partial/select_truncate.html' with onUserInfoTypeChange=onUserInfoTypeChange %}
+	{% else %}
+		{% include 'app/partial/select_truncate.html' %}
+	{% endif %}
+</div>

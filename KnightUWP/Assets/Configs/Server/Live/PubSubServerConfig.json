@@ -1,0 +1,48 @@
+{
+  "PubSubServerPort" : 40594,
+  "PubSubRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "mainredis-001.mgo0rh.0001.apn2.cache.amazonaws.com",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0
+    
+  },
+  "SendSocketIOThrottling" : 
+  {
+    "InitialCount" : 10,
+    "MaxCount" : 10
+  },
+  "ServerConfig" : 
+  {
+    "ListenBacklog" : 1024,
+    "KeepAliveTime" : 30,
+    "MaxConnectionNumber" : 3000,
+    "ReceiveBufferSize" : 4096,
+    "MaxRequestLength" : 1024,
+    "SendBufferSize" : 4096,
+    "SendingQueueSize" : 512,
+    "LogAllSocketException" : true,
+    "LogBasicSessionActivity" : true,
+    "LogCommand" : true,
+    "ClearIdleSession" : true,
+    "ClearIdleSessionInterval" : 120,
+    "IdleSessionTimeOut" : 600,
+    "SyncSend" : false
+  }, 
+  "RootConfig" : 
+  {
+    "MaxCompletionPortThreads" : 500,
+    "MinWorkingThreads" : 100,
+    "MaxWorkingThreads" : 500,
+    "DisablePerformanceDataCollector" : true,
+    "MultiCount" : 200
+  }
+}

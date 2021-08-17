@@ -1,0 +1,20 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container" ng-controller="userInfoController">
+	{% include 'app/partial/shopInfoSelectSet.html' %}
+
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="업데이트" ng-click="refreshShopInfo()" />
+    </div>
+
+	
+</div>
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/shop.js' %}"></script>"
+{% endblock %}
+

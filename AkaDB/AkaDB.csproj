@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;PublishOnly;TestUWP;TestUWPRelease</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.19" />
+    <PackageReference Include="NLog.Schema" Version="4.6.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AkaConfig\AkaConfig.csproj" />
+    <ProjectReference Include="..\AkaLogger\AkaLogger.csproj" />
+  </ItemGroup>
+
+</Project>

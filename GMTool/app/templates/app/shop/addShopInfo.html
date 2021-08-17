@@ -1,0 +1,350 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container" ng-controller="userInfoController" >
+	{% include 'app/partial/shopInfoSelectSet.html' with onShopInfoTypeChange="onShopInfoTypeChange()" %}
+
+	<br />
+	<h4>상점 정보 추가</h4>
+	<div class="panel panel-default" >
+		<div class="panel-body" id="divAddUserInfo">
+			<div ng-switch="selectedShopInfoType">
+                <div ng-switch-when="allList">
+                    <div class="form-group">
+                        <label class="control-label">productId:</label><br />
+                        <input type="number" class="form-control" id="productId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">aosStoreProductId:</label><br />
+                        <input type="text" class="form-control" id="aosStoreProductId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">iosStoreProductId:</label><br />
+                        <input type="text" class="form-control" id="iosStoreProductId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">판매시작 혹은 세일시작:</label><br />
+                        <input type="datetime-local" class="form-control" id="startDateTime" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">판매종료 혹은 세일종료:</label><br />
+                        <input type="datetime-local" class="form-control" id="endDateTime" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">productTableType:</label><br />
+                        <input type="number" class="form-control" id="productTableType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeType:</label><br />
+                        <input type="number" class="form-control" id="storeType" />
+                    </div>
+      
+                    <div class="form-group">
+                        <label class="control-label">productType:</label><br />
+                        <input type="number" class="form-control" id="productType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">countOfPurchases:</label><br />
+                        <input type="number" class="form-control" id="countOfPurchases" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">materialType:</label><br />
+                        <input type="number" class="form-control" id="materialType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">cost:</label><br />
+                        <input type="number" class="form-control" id="cost" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">saleCost:</label><br />
+                        <input type="number" class="form-control" id="saleCost" />
+                    </div>
+                </div>
+				<div ng-switch-when="productsText">
+					<div class="form-group">
+                        <label class="control-label">productId:</label><br />
+						<input type="number" class="form-control" id="productId" />
+					</div>				
+					<div class="form-group">
+                        <label class="control-label">languageType:</label><br />
+						<input type="text" class="form-control" id="languageType" />
+					</div>
+					<div class="form-group">
+                        <label class="control-label">productText:</label><br />
+						<input type="text" class="form-control" id="productText" />
+					</div>
+				</div>
+				<div ng-switch-when="products">
+					<div class="form-group">
+                        <label class="control-label">productId:</label><br />
+						<input type="number" class="form-control" id="productId" />
+					</div>				
+					<div class="form-group">
+                        <label class="control-label">rewardType:</label><br />
+						<input type="number" class="form-control" id="rewardType" />
+					</div>
+					<div class="form-group">
+                        <label class="control-label">rewardId:</label><br />
+						<input type="number" class="form-control" id="rewardId" />
+					</div>
+				</div>
+				<div ng-switch-when="rewards">
+					<div class="form-group">
+                        <label class="control-label">rewardId:</label><br />
+						<input type="number" class="form-control" id="rewardId" />
+					</div>				
+					<div class="form-group">
+                        <label class="control-label">itemId:</label><br />
+						<input type="number" class="form-control" id="itemId" />
+					</div>
+				</div>
+                <div ng-switch-when="items">
+                    <div class="form-group">
+                        <label class="control-label">itemId:</label>
+                        <input type="number" class="form-control" id="itemId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">itemType:</label>
+                        <input type="number" class="form-control" id="itemType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">id:</label>
+                        <input type="number" class="form-control" id="id" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">minCount:</label>
+                        <input type="number" class="form-control" id="minCount" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">MaxCount:</label>
+                        <input type="number" class="form-control" id="MaxCount" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">probability:</label>
+                        <input type="number" class="form-control" id="probability" />
+                    </div>
+                </div>
+                <div ng-switch-when="eventDigital">
+                    <div class="form-group">
+                        <label class="control-label">productId:</label>
+                        <input type="number" class="form-control" id="productId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">startDateTime:</label>
+                        <input  type="datetime-local" class="form-control" id="startDateTime" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">endDateTime:</label>
+                        <input  type="datetime-local"  class="form-control" id="endDateTime" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeType:</label>
+                        <input type="number" class="form-control" id="storeType" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">productType:</label>
+                        <input type="number" class="form-control" id="productType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">materialType:</label>
+                        <input type="number" class="form-control" id="materialType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">saleCost:</label>
+                        <input type="number" class="form-control" id="saleCost" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">cost:</label>
+                        <input type="number" class="form-control" id="cost" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">countOfPurchases:</label>
+                        <input type="number" class="form-control" id="countOfPurchases" />
+                    </div>
+                </div>
+                <div ng-switch-when="eventReal">
+                    <div class="form-group">
+                        <label class="control-label">productId:</label>
+                        <input type="number" class="form-control" id="productId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">startDateTime:</label>
+                        <input  type="datetime-local" class="form-control" id="startDateTime" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">endDateTime:</label>
+                        <input  type="datetime-local"  class="form-control" id="endDateTime" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">platform:</label>
+                        <input type="number" class="form-control" id="platform" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeProductId:</label>
+                        <input type="number" class="form-control" id="storeProductId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeType:</label>
+                        <input type="number" class="form-control" id="storeType" />
+                    </div>
+       
+                    <div class="form-group">
+                        <label class="control-label">productType:</label>
+                        <input type="number" class="form-control" id="productType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">saleCost:</label>
+                        <input type="number" class="form-control" id="saleCost" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">cost:</label>
+                        <input type="number" class="form-control" id="cost" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">countOfPurchases:</label>
+                        <input type="number" class="form-control" id="countOfPurchases" />
+                    </div>
+                </div>
+                <div ng-switch-when="fixDigital">
+                    <div class="form-group">
+                        <label class="control-label">productId:</label>
+                        <input type="number" class="form-control" id="productId" />
+                    </div>
+                     <div class="form-group">
+                        <label class="control-label">storeType:</label>
+                        <input type="number" class="form-control" id="storeType" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">productType:</label>
+                        <input type="number" class="form-control" id="productType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">materialType:</label>
+                        <input type="number" class="form-control" id="materialType" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">cost:</label>
+                        <input type="number" class="form-control" id="cost" />
+                    </div>
+                </div>
+                <div ng-switch-when="fixReal">
+                    <div class="form-group">
+                        <label class="control-label">productId:</label>
+                        <input type="number" class="form-control" id="productId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">platform:</label>
+                        <input type="number" class="form-control" id="platform" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeProductId:</label>
+                        <input type="number" class="form-control" id="storeProductId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeType:</label>
+                        <input type="number" class="form-control" id="storeType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">productType:</label>
+                        <input type="number" class="form-control" id="productType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">cost:</label>
+                        <input type="number" class="form-control" id="cost" />
+                    </div>
+                </div>
+                <div ng-switch-when="userDigital">
+                    <div class="form-group">
+                        <label class="control-label">productId:</label>
+                        <input type="number" class="form-control" id="productId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">saleDurationHour:</label>
+                        <input  type="number" class="form-control" id="saleDurationHour" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeType:</label>
+                        <input  type="number"  class="form-control" id="storeType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">productType:</label>
+                        <input type="number" class="form-control" id="productType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">materialType:</label>
+                        <input type="number" class="form-control" id="materialType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">countOfPurchases:</label>
+                        <input type="number" class="form-control" id="countOfPurchases" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">cost:</label>
+                        <input type="number" class="form-control" id="cost" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">saleCost:</label>
+                        <input type="number" class="form-control" id="saleCost" />
+                    </div>
+                </div>
+
+                 <div ng-switch-when="userReal">
+                    <div class="form-group">
+                        <label class="control-label">productId:</label>
+                        <input type="number" class="form-control" id="productId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">platform:</label>
+                        <input  type="number" class="form-control" id="platform" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeProductId:</label>
+                        <input  type="number"  class="form-control" id="storeProductId" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">saleDurationHour:</label>
+                        <input type="number" class="form-control" id="saleDurationHour" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">storeType:</label>
+                        <input type="number" class="form-control" id="storeType" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">productType:</label>
+                        <input type="number" class="form-control" id="productType" />
+                    </div>
+                   <div class="form-group">
+                        <label class="control-label">countOfPurchases:</label>
+                        <input type="number" class="form-control" id="countOfPurchases" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">cost:</label>
+                        <input type="number" class="form-control" id="cost" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">saleCost:</label>
+                        <input type="number" class="form-control" id="saleCost" />
+                    </div>
+                </div>
+
+			</div>
+
+			<div ng-if="selectedShopInfoType">
+				<div class="form-group">
+					<input type="button" class="btn btn-primary" value="추가" ng-click="addShopInfo()" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/shop.js' %}"></script>
+
+{% endblock %}

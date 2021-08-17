@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="KnightUWP.UX.Controls.RoundRectangle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KnightUWP.UX.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <UserControl.Resources>
+    </UserControl.Resources>
+
+    <Grid Margin="0,0,0,0" Padding="0,0,0,0" >
+
+        <Rectangle Margin="1,1,1,1" 
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch"
+                   Stroke="Black" StrokeThickness="1"
+                   RadiusX="{x:Bind XRadius}" RadiusY="{x:Bind YRadius}" 
+                   >
+            <Rectangle.Fill >
+                <SolidColorBrush Color="{x:Bind BrushColor, Mode=OneWay}" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Padding="10,0,10,0"  VerticalAlignment="Center" FontWeight="{x:Bind FontWeight}" HorizontalAlignment="Center" Text="{x:Bind Title, Mode=OneWay}" />
+    </Grid>
+</UserControl>

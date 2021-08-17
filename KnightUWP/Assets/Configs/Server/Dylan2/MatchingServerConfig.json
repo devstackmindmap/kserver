@@ -1,0 +1,71 @@
+{
+  "MatchingServerList":{
+    "1" : {
+      "1" : {
+        "port" : 40554
+      },
+      "2" : {
+        "port" : 40555
+      },
+      "3" : {
+        "port" : 40556
+      }
+    },
+    "2" : {
+      "1" : {
+        "port" : 40554
+      }
+    }
+  },
+  "BaseDelaySessionCount" : 50,
+  "GameServer" : 
+  {
+    "ip" : "172.30.1.222",
+    "port" : 40654,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "MatchingRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "172.30.1.222",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  },
+  "ServerConfig" : 
+  {
+    "ListenBacklog" : 1024,
+    "KeepAliveTime" : 30,
+    "MaxConnectionNumber" : 3000,
+    "ReceiveBufferSize" : 4096,
+    "MaxRequestLength" : 1024,
+    "SendBufferSize" : 4096,
+    "SendingQueueSize" : 512,
+    "LogAllSocketException" : true,
+    "LogBasicSessionActivity" : true,
+    "LogCommand" : true,
+    "ClearIdleSession" : true,
+    "ClearIdleSessionInterval" : 310,
+    "IdleSessionTimeOut" : 310,
+    "SyncSend" : false
+  }, 
+  "RootConfig" : 
+  {
+    "MaxCompletionPortThreads" : 500,
+    "MinWorkingThreads" : 100,
+    "MaxWorkingThreads" : 500,
+    "DisablePerformanceDataCollector" : true,
+    "MultiCount" : 200
+  }
+}

@@ -1,0 +1,1 @@
+UPDATE _common SET commonValue2 = 2020, commonValue3 = 1, commonValue4=1, commonValue5=0, commonValue6=0    WHERE commonId=1;

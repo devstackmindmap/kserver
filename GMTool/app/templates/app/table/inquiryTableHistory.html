@@ -1,0 +1,84 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="container" ng-controller="tableController">
+	<div class="form-group">
+        <lable class="control-label" for="runMode">서버 종류:</lable>
+        <div>
+            {% include 'app/partial/selectRunMode.html' with runModeDef="runMode" %}
+        </div>
+    </div>
+	<div class="form-group">
+        <lable for="assetBundleType">테이블 종류:</lable>
+        <div>
+			<select class="selectpicker" id="tableType" name="tableType">
+				{% for tableData in tableNames %}
+					<option value="{{tableData.name}}">{{tableData.name}}</option>
+				{% endfor %}
+			</select>
+            <lable for="assetBundleType">테이블생성 번들버전:</lable>
+            <select class="selectpicker" id="bundleVersion" name="bundleVersion">
+				{% for bundleVersion in bundleVersions %}
+					<option value="{{bundleVersion.bundleVersion}}">{{bundleVersion.bundleVersion}}</option>
+				{% endfor %}
+			</select>
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="button" value="조회" ng-click="getTables()"/>
+    </div>
+
+	<div class="form-group">
+		<table id="tableHistory" class="table table-striped table-bordered" style="width:100%">
+			<thead>
+				<tr>
+					<th>
+						<input type="checkbox" id="isAllChoiceCheck" ng-click="checkAllChoiceButton()" /> 선택
+					</th>
+					<th>버전</th>
+					<th>이름</th>
+                    <th>bundleVersion</th>
+					<th>Url</th>
+					<th>날짜</th>
+					<th>주석</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="tableInfo in tableRows">
+					<td>
+						<input type="checkbox" name="isChecked[]" value="[[tableInfo.version]]">
+					</td>
+					<td>[[tableInfo.version]]</td>
+					<td>[[tableInfo.name]]</td>
+                    <td>[[tableInfo.bundleVersion]]</td>
+					<td>[[tableInfo.url]]</td>
+					<td>[[tableInfo.createDate]]</td>
+					<td>[[tableInfo.comment]]</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="form-group">
+        <input class="btn btn-primary" type="button" value="삭제" ng-click="deleteSelectedTables()"/>
+    </div>
+</div>
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/table.js' %}"></script>"
+    <script>
+		/*
+        $(document).ready(function(){
+			$('#assetBundleHistory').DataTable({
+				"scrollY": "700px",
+				"scrollX": true,
+				"scrollCollapse": true,
+				"paging": false,
+				"order": [[1, "desc"]]
+            });
+		});
+		*/
+    </script>
+{% endblock %}

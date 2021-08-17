@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="kr" ng-app="kr_app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="{% csrf_token %}">
+    <title>Seoul Region</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-fileinput/css/fileinput.min.css' %}" media="all"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'node_modules/angular-datatables/dist/css/angular-datatables.min.css' %}">
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">KnightRun - {{ globalRunMode }}</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">테이블<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+                            <li><a href="{% url 'uploadMultiTable' %}">업로드</a></li>
+							<li><a href="{% url 'updateTableVersion' %}">버전 업데이트</a></li>
+							<li><a href="{% url 'inquiryTableContent' %}">내용보기</a></li>
+							<li><a href="{% url 'inquiryTableHistory' %}">내역 조회/삭제</a></li>
+							{#<li><a href="{% url 'updateOrderAndSelectionInfo' %}">다운 순번/선택 설정</a></li>#}
+                            <li><a href="{% url 'tableApartInfo' %}">테이블 사용처 구분</a></li>
+							<li><a href="{% url 'transferTable' %}">이관</a></li>
+						</ul>
+					</li>
+					{#<li class="dropdown">#}
+						{#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">에셋번들<span class="caret"></span></a>#}
+						{#<ul class="dropdown-menu">#}
+							{#<li><a href="{% url 'uploadMultiAssetBundle' %}">업로드</a></li>#}
+							{#<li><a href="{% url 'updateAssetBundleVersion' %}">버전 업데이트</a></li>#}
+							{#<li><a href="{% url 'inquiryAssetBundle' %}">내역 조회/삭제</a></li>#}
+							{#<li><a href="{% url 'updateAssetBundleOrder' %}">다운 순번 설정</a></li>#}
+							{#<li><a href="{% url 'transferAssetBundle' %}">이관</a></li>#}
+						{#  </ul>#}
+					{#</li>#}
+                    <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">상점관리<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+                            <li><a href="{% url 'uploadMultiDB'%}">기본 데이터 업로드</a></li>
+                            {#<li><a href="{% url 'viewStoreSchedule'%}">상점 스케쥴 관리</a></li>#}
+                            <li><a href="{% url 'getShopInfo'%}">상점 정보 관리</a></li>
+                            <li><a href="{% url 'addShopInfo'%}">상점 정보 추가</a></li>
+                            <li><a href="{% url 'refreshShopInfo'%}">상점 정보 갱신</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">게임관리<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'inquiryUserInfo' %}">유저정보 조회/수정</a></li>
+							<li><a href="{% url 'addUserInfo' %}">유저정보 추가</a></li>
+                            {#<li><a href="{% url 'allUserModify' %}">전체 유저 데이터 일괄 변경</a></li>#}
+                            {#<li><a href="{% url 'insertItem' %}">아이템 전체 신규 지급</a></li>#}
+                            {#<li><a href="{% url 'deleteItem' %}">아이템 전체 삭제</a></li>#}
+                            {#<li><a href="{% url 'getfriendList' %}">친구리스트</a></li>#}
+                            {#<li><a color="RED" href="{% url 'truncateUser' %}">전체 유저 삭제</a></li>#}
+                            <li><a href="{% url 'inquiryClanInfo' %}">클랜 정보조회</a></li>
+                            <li><a href="{% url 'inquiryEventInfo' %}">이벤트 타입정보</a></li>
+                            <li><a href="{% url 'maintenanceTime' %}">점검 시간 등록</a></li>
+						</ul>
+					</li>
+                    <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">메시지관리<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+                            <li><a href="{% url 'publicNotice' %}">인게임 즉시 공지</a></li>
+							<li><a href="{% url 'noticeReservation' %}">인게임 공지 예약</a></li>
+                            <li><a href="{% url 'inGameNoticeList' %}">등록 공지 관리</a></li>
+                            <li><a href="{% url 'messagePush' %}">푸시 메시지</a></li>
+                            <li><a href="{% url 'pushReservation' %}">푸시 메시지 예약</a></li>
+                            <li><a href="{% url 'getReservationPushList' %}">푸시 예약 리스트</a></li>
+                            <li><a href="{% url 'insertMail' %}">메일 전송</a></li>
+                            <li><a href="{% url 'serverInhouseChecker' %}">서버 점검 모드 설정</a></li>
+                            
+                            
+						</ul>
+                    </li>
+                    <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">로그 보기<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+                            
+
+                            
+						</ul>
+                    </li>
+				</ul>
+
+                {% include 'app/partial/login.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+	{% block content %}{% endblock %}
+        <hr/>
+        <footer>
+            <p>&copy; 2018 - AkaStudio.co.kr</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+
+	<script src="{% static 'bootstrap-fileinput/js/plugins/piexif.min.js' %}"></script>
+    <script src="{% static 'bootstrap-fileinput/js/plugins/sortable.min.js' %}"></script>
+    <script src="{% static 'bootstrap-fileinput/js/plugins/purify.min.js' %}"></script>
+    <script src="{% static 'bootstrap-fileinput/js/fileinput.min.js' %}"></script>
+	<script src="{% static 'bootstrap-fileinput/themes/fa/theme.js' %}"></script>
+    <script src="{% static 'bootstrap-fileinput/js/locales/kr.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script src="{% static 'node_modules/angular/angular.js' %}"></script>
+	<script src="{% static 'node_modules/angular-datatables/dist/angular-datatables.min.js' %}"></script>
+	<script src="{% static 'gmtool/common.js' %}"></script>
+	
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

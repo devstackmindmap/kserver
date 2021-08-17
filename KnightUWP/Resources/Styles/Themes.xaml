@@ -1,0 +1,88 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="Brand-Color">#3750D1</Color>
+
+    <!-- Titlebar -->
+    <Color x:Key="Titlebar-Foreground">#FFDDDDDD</Color>
+
+    <Color x:Key="Color_Battle_State_None">#330AAAAA</Color>
+    <Color x:Key="Color_Battle_Action_Default">#330AAAAA</Color>
+    <SolidColorBrush x:Key="Brush-Battle_State_None" Color="{ThemeResource Color_Battle_State_None}" />
+    <SolidColorBrush x:Key="Brush-Battle_Action_Default" Color="{ThemeResource Color_Battle_Action_Default}" />
+    
+    <Color x:Key="Color_Battle_State_Matching">#A20AAAAA</Color>
+    <SolidColorBrush x:Key="Brush-Battle_State_Matching" Color="{ThemeResource Color_Battle_State_Matching}" />
+    <Color x:Key="Color_Battle_State_Matched">#1DAA0AAA</Color>
+    <SolidColorBrush x:Key="Brush-Battle_State_Matched" Color="{ThemeResource Color_Battle_State_Matched}" />
+    
+    <Color x:Key="Color_Battle_State_EnterRoom">#FFEB0DAA</Color>
+    <Color x:Key="Color_Battle_Action_Attack">#FFEB0DAA</Color>
+    <SolidColorBrush x:Key="Brush-Battle_State_EnterRoom" Color="{ThemeResource Color_Battle_State_EnterRoom}" />
+    <SolidColorBrush x:Key="Brush-Battle_Action_Attack" Color="{ThemeResource Color_Battle_Action_Attack}" />
+
+    <Color x:Key="Color_Battle_State_BeforeStart">#AE0DFFAA</Color>
+    <Color x:Key="Color_Battle_State_Action_CardUse">#AE0DFFAA</Color>
+    <SolidColorBrush x:Key="Brush-Battle_State_BeforeStart" Color="{ThemeResource Color_Battle_State_BeforeStart}" />
+    <SolidColorBrush x:Key="Brush-Battle_Action_CardUse" Color="{ThemeResource Color_Battle_State_Action_CardUse}" />
+
+    <Color x:Key="Color_Battle_State_Start">#AA350AAA</Color>
+    <Color x:Key="Color_Battle_Action_Skill">#AA350AAA</Color>
+    <SolidColorBrush x:Key="Brush-Battle_State_Start" Color="{ThemeResource Color_Battle_State_Start}" />
+    <SolidColorBrush x:Key="Brush-Battle_Action_Skill" Color="{ThemeResource Color_Battle_Action_Skill}" />
+
+    <Color x:Key="Color_Battle_Wrong_Closed">#CCFF1111</Color>
+    <Color x:Key="Color_Battle_State_UnitDeath">#CCFF1111</Color>
+    <SolidColorBrush x:Key="Brush-Battle_State_UnitDeath" Color="{ThemeResource Color_Battle_State_UnitDeath}" />
+    <SolidColorBrush x:Key="Brush-Battle_Wrong_Closed" Color="{ThemeResource Color_Battle_Wrong_Closed}" />
+
+
+    <Style x:Key="SliderThumbStyle"
+           TargetType="Thumb">
+        <Setter Property="UseSystemFocusVisuals" Value="True" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{ThemeResource SliderThumbBackground}" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Width" Value="24" />
+        <Setter Property="FocusVisualMargin" Value="-14,-6,-14,-6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="12" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+
+            <Color x:Key="Grey-01">#FF222222</Color>
+            <Color x:Key="Grey-02">#FF444444</Color>
+            <Color x:Key="Grey-03">#FF555555</Color>
+            <Color x:Key="Grey-04">#FFDDDDDD</Color>
+            <Color x:Key="Grey-05">#FFF0F0F0</Color>
+
+            <SolidColorBrush x:Key="Brush-Grey-01" Color="{ThemeResource Grey-01}" />
+            <SolidColorBrush x:Key="Brush-Grey-02" Color="{ThemeResource Grey-02}" />
+
+            <Color x:Key="Color_UserInfo_r1">#330AAAAA</Color>
+            <Color x:Key="Color_UserInfo_r2">#33AAAAAA</Color>
+            <Color x:Key="Color_UserInfo_r3">#33AA00AA</Color>
+            <Color x:Key="Color_UserInfo_r4">#33AAAA00</Color>
+
+            <SolidColorBrush x:Key="Brush-UserInfo_r1" Color="{ThemeResource Color_UserInfo_r1}" />
+            <SolidColorBrush x:Key="Brush-UserInfo_r2" Color="{ThemeResource Color_UserInfo_r2}" />
+            <SolidColorBrush x:Key="Brush-UserInfo_r3" Color="{ThemeResource Color_UserInfo_r3}" />
+            <SolidColorBrush x:Key="Brush-UserInfo_r4" Color="{ThemeResource Color_UserInfo_r4}" />
+
+
+
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>

@@ -1,0 +1,8 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "devDependencies": {
+    "angular": "^1.7.2",
+    "angular-datatables": "^0.6.2"
+  }
+}

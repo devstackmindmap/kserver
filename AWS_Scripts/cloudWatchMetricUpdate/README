@@ -1,0 +1,49 @@
+#slack 웹 훅 생성
+
+#키 생성
+aws kms create-key --region ap-northeast-2
+
+aws kms create-alias --alias-name "alias/SlackKey" 
+--target-key-id "위에서 생성한 KeyId를 넣어줍니다." --region ap-northeast-2
+
+
+aws kms encrypt --key-id alias/SlackKey --plaintext 
+"hooks.slack.com/services/슬랙 웹훅에서 카피해온 정보" --region ap-northeast-2
+
+
+AWS SNS 주제 생성
+
+
+lambda  함수 생성 
+  - 블루프린터 
+  - cloudwatch alarm to slack 선택
+
+
+포함된 lambdaToSlack.py 스크립트에 붙여 넣기.
+
+환경변수 추가.
+slackChannel  : 메시지를 보낼 슬랙 채널
+kmsEncryptedHookUrl : 위에 암호키로 암호화한 값
+
+
+
+
+각 서버 단위에 대한 내부 정보 확인
+
+실행하는 계정에서 인증 정보 등록.
+
+gameServer.sh (WebServer용)
+
+#!/bin/bash
+INST=$'Game01'  # 인스턴스명 
+USEDMEMORY=$(free -m | awk 'NR==2{printf "%.2f\t", $3*100/$2 }')  #메모리 사용량
+TCP_CONN=$(netstat -an | wc -l)  # 전체 tcp 접속 정보
+TCP_CONN_PORT_40654=$(netstat -an | grep 40654 | wc -l)  # GameServer 의 연결수... (0이 될 경우 서버가 죽은것으로 판단 알람 처리)
+USERS=$(uptime |awk '{ print $6 }')
+IO_WAIT=$(iostat | awk 'NR==4 {print $5}')  # IO 지연 값 확인. 
+
+aws cloudwatch put-metric-data --metric-name memory-usage --dimensions Instance=$INST  --namespace "Custom" --value $USEDMEMORY
+aws cloudwatch put-metric-data --metric-name Tcp_connections --dimensions Instance=$INST  --namespace "Custom" --value $TCP_CONN
+aws cloudwatch put-metric-data --metric-name TCP_connection_on_port_40654 --dimensions Instance=$INST  --namespace "Custom" --value $TCP_CONN_PORT_40654
+aws cloudwatch put-metric-data --metric-name No_of_users --dimensions Instance=$INST  --namespace "Custom" --value $USERS
+aws cloudwatch put-metric-data --metric-name IO_WAIT --dimensions Instance=$INST  --namespace "Custom" --value $IO_WAIT

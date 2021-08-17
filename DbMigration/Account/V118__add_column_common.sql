@@ -1,0 +1,5 @@
+ALTER TABLE `_common`
+	ADD COLUMN `commonValue3` INT(11) NULL DEFAULT NULL AFTER `commonValue2`,
+	ADD COLUMN `commonValue4` INT(11) NULL DEFAULT NULL AFTER `commonValue3`,
+	ADD COLUMN `commonValue5` INT(11) NULL DEFAULT NULL AFTER `commonValue4`,
+	ADD COLUMN `commonValue6` INT(11) NULL DEFAULT NULL AFTER `commonValue5`;

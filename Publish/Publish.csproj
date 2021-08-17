@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;PublishOnly;TestUWP;TestUWPRelease</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='TestUWPRelease|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PublishOnly|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="&#xD;&#xA;&#xD;&#xA;IF $(ConfigurationName)==Release  (&#xD;&#xA;echo &quot;Release&quot;&#xD;&#xA;xcopy /Y $(SolutionDir)AkaData\bin\Debug\netstandard2.0\AkaEnum.dll %25KCLIENT_TARGET_DIR%25\Assets\Plugins\AkaServer&#xD;&#xA;goto :publish&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;IF $(ConfigurationName)==PublishOnly  (&#xD;&#xA;echo &quot;Publish Only&quot;&#xD;&#xA;xcopy /Y $(SolutionDir)AkaData\bin\Debug\netstandard2.0\AkaEnum.dll %25KCLIENT_TARGET_DIR%25\Assets\Plugins\AkaServer&#xD;&#xA;goto :publish&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;goto :nopublish&#xD;&#xA;&#xD;&#xA;      &#xD;&#xA;:publish&#xD;&#xA;robocopy &quot;$(SolutionDir)AkaData\Protocol\File&quot; &quot;%25KCLIENT_TARGET_DIR%25\Assets\Scripts\Network\Protocol\File&quot; /MIR /R:1&#xD;&#xA;&#xD;&#xA;robocopy &quot;$(SolutionDir)CommonProtocol\Entities&quot; &quot;%25KCLIENT_TARGET_DIR%25\Assets\Scripts\Network\Protocol\Common&quot; /MIR /R:1&#xD;&#xA;&#xD;&#xA;xcopy /Y $(SolutionDir)CommonProtocol\BaseProtocol.cs %25KCLIENT_TARGET_DIR%25\Assets\Scripts\Network\Protocol\Common&#xD;&#xA;&#xD;&#xA;xcopy /Y $(SolutionDir)CommonProtocol\MessageType.cs %25KCLIENT_TARGET_DIR%25\Assets\Scripts\Network\Protocol\Common&#xD;&#xA;&#xD;&#xA;xcopy /Y $(SolutionDir)Common\Entities\Charger\Class\ChargerData.cs %25KCLIENT_TARGET_DIR%25\Assets\Scripts\Network\Charger&#xD;&#xA;&#xD;&#xA;$(SolutionDir)Publish\MessagePackGenerator\mpc.exe -i %25KCLIENT_TARGET_DIR%25\Assembly-CSharp.csproj -o %25KCLIENT_TARGET_DIR%25\Assets\Scripts\MessagePack\MessagePackGenerated.cs&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;:nopublish" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="NLog.Schema" Version="4.6.8" />
+  </ItemGroup>
+
+</Project>

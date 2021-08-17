@@ -1,0 +1,18 @@
+{
+  "GroupRankServerPort" : 40754,
+  "GroupRankRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "172.30.1.222",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  }
+}

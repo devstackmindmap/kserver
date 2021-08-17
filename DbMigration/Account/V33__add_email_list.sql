@@ -1,0 +1,11 @@
+INSERT INTO emailList (email) VALUES ('dykimblue@gmail.com');
+INSERT INTO emailList (email) VALUES ('phs9820@gmail.com');
+INSERT INTO emailList (email) VALUES ('gdrwesml@gmail.com');
+INSERT INTO emailList (email) VALUES ('tentenmaru1991@gmail.com');
+INSERT INTO emailList (email) VALUES ('dohyun.kwon@akastudio.co.kr');
+INSERT INTO emailList (email) VALUES ('gudimp1@gmail.com');
+INSERT INTO emailList (email) VALUES ('kkpkpkp3@gmail.com');
+INSERT INTO emailList (email) VALUES ('youngsik.hwang@akastudio.co.kr');
+INSERT INTO emailList (email) VALUES ('tanuk931@gmail.com');
+INSERT INTO emailList (email) VALUES ('chonjae@gmail.com');
+INSERT INTO emailList (email) VALUES ('lunimania12@gmail.com');

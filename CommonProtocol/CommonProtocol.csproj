@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;PublishOnly;TestUWP;TestUWPRelease</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="1.7.3.4" />
+    <PackageReference Include="NLog.Schema" Version="4.6.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AkaData\AkaData.csproj" />
+    <ProjectReference Include="..\AkaRedis\AkaRedis.csproj" />
+    <ProjectReference Include="..\AkaSerializer\AkaSerializer.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,50 @@
+{
+  "ServerSetting": {
+    "TableCdnUrl": "http://127.0.0.1:63545/",
+    "BattleServerPort": 30654,
+    "WebServerPort": 40654
+  },
+  "RedisSetting": {
+    "ConnectionList": [
+      "127.0.0.1:6379"
+    ],
+    "KeepAlive" :60,
+    "DefaultDatabase" : 0
+    
+
+  },
+  "DBSetting": {
+    "knightrun": {
+      "user": "root",
+      "password": "alaighdi54$%",
+      "database": "knightrun",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "charset": "utf8"
+    },
+    "knightrun_gmtool": {
+      "user": "root",
+      "password": "alaighdi54$%",
+      "database": "knightrun_gmtool",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "charset": "utf8"
+    }
+  },
+  "MatchingSetting":{
+    "port": 40554
+  },
+  "RabbitMQSetting":{
+      "Url": "amqp://localhost",
+      "QueueName" : "KnightRun",
+      "exchangeName" : "rmq.target.Knight",
+      "RoutingKey" : "#"
+  },
+  "MongoDBSetting": {
+    "Url": "mongodb://localhost:27017/",
+    "Port": "27017",
+    "DBName": "KnightRun",
+    "CollectionName": "Log"
+  }
+}
+

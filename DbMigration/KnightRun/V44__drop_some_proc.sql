@@ -1,0 +1,2 @@
+DROP PROCEDURE IF EXISTS `p_updateGold`;
+DROP PROCEDURE IF EXISTS `p_updateUnitRankPoint`;

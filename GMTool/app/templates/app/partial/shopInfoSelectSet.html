@@ -1,0 +1,17 @@
+﻿<div class="form-group">
+	<lable class="control-label">서버 종류:</lable>
+	<br />
+	{% include 'app/partial/selectRunMode.html' with runModeDef="runMode" %}
+</div>
+
+<div class="form-group">
+	<lable class="control-label">유저정보 종류:</lable>
+	<br />
+    	
+    	{% if onShopInfoTypeChange %}
+	    	{% include 'app/partial/selectShopInfoType.html' with onShopInfoTypeChange=onShopInfoTypeChange %}
+	    {% else %}
+		    {% include 'app/partial/selectShopInfoType.html' %}
+    	{% endif %}
+
+</div>

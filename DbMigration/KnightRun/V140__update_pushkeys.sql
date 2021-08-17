@@ -1,0 +1,1 @@
+UPDATE pushkeys SET termsAgree = 1;

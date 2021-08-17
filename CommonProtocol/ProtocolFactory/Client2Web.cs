@@ -1,0 +1,202 @@
+﻿using AkaSerializer;
+using System;
+using System.IO;
+
+namespace CommonProtocol
+{
+    public static class Client2Web
+    {
+        // Client To WebServer
+        public static BaseProtocol DeserializeProtocol(MessageType messageType, Stream stream)
+        {
+            switch (messageType)
+            {
+                case MessageType.ServerStatus:
+                    return AkaSerializer<ProtoEmpty>.Deserialize(stream);
+                case MessageType.Login:
+                    return AkaSerializer<ProtoLogin>.Deserialize(stream);
+                case MessageType.AccountJoin:
+                    return AkaSerializer<ProtoAccountJoin>.Deserialize(stream);
+                case MessageType.LevelUp:
+                    return AkaSerializer<ProtoLevelUp>.Deserialize(stream);
+                case MessageType.SetDeck:
+                    return AkaSerializer<ProtoSetDeck>.Deserialize(stream);
+                case MessageType.GetDeck:
+                    return AkaSerializer<ProtoGetDeck>.Deserialize(stream);
+                case MessageType.GetBattleServer:
+                    return AkaSerializer<ProtoGetBattleServer>.Deserialize(stream);
+                case MessageType.InfusionBoxOpen:
+                    return AkaSerializer<ProtoInfusionBoxOpen>.Deserialize(stream);
+                case MessageType.GetDeckWithDeckNum:
+                    return AkaSerializer<ProtoGetDeckWithDeckNum>.Deserialize(stream);
+                case MessageType.GetBattleResult:
+                    return AkaSerializer<ProtoBattleResultStage>.Deserialize(stream);
+                case MessageType.GetBattleResultKnightLeague:
+                case MessageType.GetBattleResultVirtualLeague:
+                    return AkaSerializer<ProtoBattleResult>.Deserialize(stream);
+                case MessageType.SkinPutOn:
+                    return AkaSerializer<ProtoSkinPutOn>.Deserialize(stream);
+                case MessageType.GetBattleRecord:
+                    return AkaSerializer<ProtoGetBattleRecord>.Deserialize(stream);
+                case MessageType.GetBattleRecordList:
+                    return AkaSerializer<ProtoGetBattleRecordList>.Deserialize(stream);
+                case MessageType.SaveBattleRecordInfo:
+                    return AkaSerializer<ProtoBattleRecord>.Deserialize(stream);
+                case MessageType.GetVirtualRankPoint:
+                case MessageType.GetRankPoint:
+                    return AkaSerializer<ProtoRankPoint>.Deserialize(stream);
+                case MessageType.GetStageLevelRoomInfo:
+                    return AkaSerializer<ProtoGetStageLevelRoomInfo>.Deserialize(stream);
+                case MessageType.SetStageLevelRoomInfo:
+                    return AkaSerializer<ProtoSetStageLevelRoomInfo>.Deserialize(stream);
+                case MessageType.SetSaveDeck:
+                    return AkaSerializer<ProtoSetSaveDeck>.Deserialize(stream);
+                case MessageType.GetRankingBoard:
+                    return AkaSerializer<ProtoRankingBoard>.Deserialize(stream);
+                case MessageType.GetRankingBoardClan:
+                    return AkaSerializer<ProtoRankingBoard>.Deserialize(stream);
+                case MessageType.GetRankingBoardUnit:
+                    return AkaSerializer<ProtoRankingBoardUnit>.Deserialize(stream);
+                case MessageType.SetEmoticons:
+                    return AkaSerializer<ProtoSetEmoticons>.Deserialize(stream);
+                case MessageType.SetQuest:
+                    return AkaSerializer<ProtoSetQuestList>.Deserialize(stream);
+                case MessageType.GetQuestList:
+                    return AkaSerializer<ProtoGetQuestList>.Deserialize(stream);
+                case MessageType.AddFriendByCode:
+                case MessageType.ClanJoinByCode:
+                    return AkaSerializer<ProtoAddInvite>.Deserialize(stream);
+                case MessageType.ClanOut:
+                case MessageType.GetClanRecommend:
+                case MessageType.GetAdditionalUserInfo:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.AddFriendByRequested:
+                case MessageType.RemoveFriend:
+                case MessageType.RejectFriendByRequested:
+                case MessageType.ClanJoin:
+                case MessageType.GetClanProfile:
+                case MessageType.GetClanProfileAndMembers:
+                case MessageType.ClanBanish:
+                    return AkaSerializer<ProtoUserIdTargetId>.Deserialize(stream);
+                case MessageType.RequestFriendById:
+                    return AkaSerializer<ProtoRequestFriend>.Deserialize(stream);
+                case MessageType.RequestFriendByNickname:
+                    return AkaSerializer<ProtoAddInvite>.Deserialize(stream);
+                case MessageType.GetReward:
+                    return AkaSerializer<ProtoGetReward>.Deserialize(stream);
+                case MessageType.GetFriendInfo:
+                case MessageType.GetFriendCode:
+                case MessageType.GetUserProfile:
+                case MessageType.GetClanInviteCode:
+                case MessageType.Test:
+                case MessageType.GetUnitProfile:
+                case MessageType.GetSeasonReward:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.GetCardProfile:
+                    return AkaSerializer<ProtoUserIdAndId>.Deserialize(stream);
+                case MessageType.GetSquareObjectState:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.SquareObjectStart:
+                    return AkaSerializer<ProtoSquareObjectStart>.Deserialize(stream);
+                case MessageType.SquareObjectStop:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);                    
+                case MessageType.SquareObjectPowerInjection:
+                    return AkaSerializer<ProtoSquareObjectPowerInject>.Deserialize(stream);
+                case MessageType.ChangeProfileIcon:
+                    return AkaSerializer<ProtoChangeProfileIcon>.Deserialize(stream);
+                case MessageType.ClanCreate:
+                    return AkaSerializer<ProtoClanCreate>.Deserialize(stream);
+                case MessageType.ClanSearch:
+                    return AkaSerializer<ProtoString>.Deserialize(stream);
+                case MessageType.ClanModifyMemberGrade:
+                    return AkaSerializer<ProtoModifyMemberGrade>.Deserialize(stream);
+                case MessageType.ClanProfileModify:
+                    return AkaSerializer<ProtoClanProfileModify>.Deserialize(stream);
+                case MessageType.UserAdditionalInfoChange:
+                    return AkaSerializer<ProtoUserInfoChange>.Deserialize(stream);
+                case MessageType.GetProducts:
+                    return AkaSerializer<ProtoGetProducts>.Deserialize(stream);
+                case MessageType.UpdatePushKey:
+                    return AkaSerializer<ProtoUserIdStringValue>.Deserialize(stream);
+                case MessageType.BuyProductDigital:
+                    return AkaSerializer<ProtoBuyProductDigital>.Deserialize(stream);
+                case MessageType.BuyProductReal:
+                    return AkaSerializer<ProtoBuyProductReal>.Deserialize(stream);
+                case MessageType.UpdatePushAgree:
+                    return AkaSerializer<ProtoUserIdByteValue>.Deserialize(stream);
+                case MessageType.UpdateNightPushAgree:
+                    return AkaSerializer<ProtoUserIdByteValue>.Deserialize(stream);
+                case MessageType.UpdateTermsAgree:
+                    return AkaSerializer<ProtoUserIdByteValue>.Deserialize(stream);
+                case MessageType.SetChattingMessage:
+                    return AkaSerializer<ProtoSetChattingMessage>.Deserialize(stream);
+                case MessageType.GetChattingMessage:
+                    return AkaSerializer<ProtoGetChattingMessage>.Deserialize(stream);
+                case MessageType.GetCouponReward:
+                    return AkaSerializer<ProtoUserIdStringValue>.Deserialize(stream);
+                case MessageType.SkipQuest:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.ReloadServerList:
+                    return null;
+                case MessageType.MailRead:
+                    return AkaSerializer<ProtoMailRead>.Deserialize(stream);
+                case MessageType.MailReadAll:
+                    return AkaSerializer<ProtoMailReadAll>.Deserialize(stream);
+                case MessageType.MailDeleteAll:
+                    return AkaSerializer<ProtoMailReadAll>.Deserialize(stream);
+                case MessageType.MailUpdatePublic:
+                    return AkaSerializer<ProtoMailUpdatePublic>.Deserialize(stream);
+                case MessageType.MailUpdatePrivate:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.MailUpdateSystem:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.BuySeasonPass:
+                    return AkaSerializer<ProtoBuySeasonPass>.Deserialize(stream);
+                case MessageType.SyncTime:
+                    return AkaSerializer<ProtoSyncTime>.Deserialize(stream);
+                case MessageType.GetSquareObjectFriends:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.SquareObjectPowerInjectionFriend:
+                    return AkaSerializer<ProtoUserIdTargetId>.Deserialize(stream);
+                case MessageType.SquareObjectReactivate:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.SquareObjectBuyEnergy:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.NewQuest:
+                    return AkaSerializer<ProtoNewQuest>.Deserialize(stream);
+                case MessageType.EventAddFriendByCode:
+                case MessageType.EventFriendGetReward:
+                    return AkaSerializer<ProtoUserIdTargetId>.Deserialize(stream);
+                case MessageType.EventFriendCheck:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.StartChallenge:
+                    return AkaSerializer<ProtoChallenge>.Deserialize(stream);
+                case MessageType.StartEventChallenge:
+                    return AkaSerializer<ProtoEventChallenge>.Deserialize(stream);
+                case MessageType.GetChallengeStageList:
+                    return AkaSerializer<ProtoUserId>.Deserialize(stream);
+                case MessageType.GetEventChallengeStageList:
+                    return AkaSerializer<ProtoUserIdAndId>.Deserialize(stream);
+                case MessageType.GetChallengeFirstClearUser:
+                    return AkaSerializer<ProtoChallengeParam>.Deserialize(stream);
+                case MessageType.GetEventChallengeFirstClearUser:
+                    return AkaSerializer<ProtoEventChallengeParam>.Deserialize(stream);
+                case MessageType.GetBattleResultChallenge:
+                    return AkaSerializer<ProtoBattleResultChallenge>.Deserialize(stream);
+                case MessageType.GetBattleResultEventChallenge:
+                    return AkaSerializer<ProtoBattleResultEventChallenge>.Deserialize(stream);
+                case MessageType.BattleRoundClearChallenge:
+                    return AkaSerializer<ProtoChallenge>.Deserialize(stream);
+                case MessageType.BattleRoundClearEventChallenge:
+                    return AkaSerializer<ProtoEventChallenge>.Deserialize(stream);
+                case MessageType.ChallengeRewardReset:
+                    return AkaSerializer<ProtoChallengeParam>.Deserialize(stream);
+                case MessageType.EventChallengeRewardReset:
+                    return AkaSerializer<ProtoEventChallengeParam>.Deserialize(stream);
+
+                default:
+                    throw new Exception("[ProtocolFactory] Invalid Web Url Type : " + messageType);
+            }
+        }
+    }
+}

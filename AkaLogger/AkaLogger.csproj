@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;PublishOnly;TestUWP;TestUWPRelease</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Loggers\User\Purchase\**" />
+    <EmbeddedResource Remove="Loggers\User\Purchase\**" />
+    <None Remove="Loggers\User\Purchase\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="NLog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NLog" Version="4.6.0" />
+    <PackageReference Include="NLog.Schema" Version="4.6.8" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AkaEnum\AkaEnum.csproj" />
+    <ProjectReference Include="..\Nlog.RabbitMQ.Target\Nlog.RabbitMQ.Target.csproj" />
+  </ItemGroup>
+
+</Project>

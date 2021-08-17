@@ -1,0 +1,86 @@
+{
+  "TriggerServerPort" : 40694,
+  "ServerInfoCheckInterval" : 5,
+  "TriggerPubServer" : 
+  {
+    "ip" : "172.30.1.226",
+    "port" : 40594,
+    "tryReconnectTime" : 5000,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "ServerConfig" : 
+  {
+    "ListenBacklog" : 1024,
+    "KeepAliveTime" : 30,
+    "MaxConnectionNumber" : 3000,
+    "ReceiveBufferSize" : 4096,
+    "MaxRequestLength" : 1024,
+    "SendBufferSize" : 4096,
+    "SendingQueueSize" : 512,
+    "LogAllSocketException" : true,
+    "LogBasicSessionActivity" : true,
+    "LogCommand" : true,
+    "ClearIdleSession" : true,
+    "ClearIdleSessionInterval" : 120,
+    "IdleSessionTimeOut" : 600,
+    "SyncSend" : false
+  }, 
+  "RootConfig" : 
+  {
+    "MaxCompletionPortThreads" : 500,
+    "MinWorkingThreads" : 100,
+    "MaxWorkingThreads" : 500,
+    "DisablePerformanceDataCollector" : true,
+    "MultiCount" : 200
+  },
+  "BattleServerList":{
+    "port":30654,
+    "tryConnectionWaitingTime":3000,
+    "countryIps" : {
+      "1":[
+        "172.30.1.226",
+        "172.30.1.226"
+      ],
+      "2":[
+        "172.30.1.226",
+        "172.30.1.226"
+      ],
+      "3":[
+        "172.30.1.226",
+        "172.30.1.226"
+      ],
+      "4":[
+        "172.30.1.226",
+        "172.30.1.226"
+      ]
+    }
+  },
+  "PubSubServerList":{
+    "port":40594,
+    "tryConnectionWaitingTime":3000,
+    "countryIps" : {
+      "1":[
+        "172.30.1.226"
+      ]
+    }
+  },
+  "TriggerRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "172.30.1.226",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  }
+}

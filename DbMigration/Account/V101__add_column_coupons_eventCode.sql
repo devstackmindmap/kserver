@@ -1,0 +1,2 @@
+ALTER TABLE `_coupon`
+	ADD COLUMN `eventCode` INT(10) NULL DEFAULT NULL AFTER `productId`;

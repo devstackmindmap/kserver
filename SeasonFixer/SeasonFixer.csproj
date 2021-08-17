@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AkaConfig\AkaConfig.csproj" />
+    <ProjectReference Include="..\AkaData\AkaData.csproj" />
+    <ProjectReference Include="..\AkaEnum\AkaEnum.csproj" />
+    <ProjectReference Include="..\AkaSerializer\AkaSerializer.csproj" />
+  </ItemGroup>
+
+</Project>

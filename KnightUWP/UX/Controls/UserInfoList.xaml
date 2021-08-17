@@ -1,0 +1,50 @@
+﻿<UserControl
+    x:Class="KnightUWP.UX.Controls.UserInfoList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KnightUWP.UX.Controls"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="gridParent" FocusVisualPrimaryThickness="0,0,0,0" FocusVisualSecondaryThickness="0,0,0,0">
+        <ListView x:Name="UserInfoListView" FocusVisualPrimaryThickness="0,0,0,0" FocusVisualSecondaryThickness="0,0,0,0"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ContainerContentChanging="UserInfoListView_ContainerContentChanging" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Text="{Binding nickName}" />
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding joinDateTime}" />
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding joinDateTime}" />
+
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="8,0,0,0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</UserControl>

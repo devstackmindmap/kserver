@@ -1,0 +1,44 @@
+{
+    "ServerSetting": {
+        "TableCdnUrl": "http://download.akastudio.co.kr/"
+    },
+    "DBSetting": {
+      "account": {
+        "user": "akaAdmin",
+        "password": "dkzkdjemals$#",
+        "database": "account",
+        "host": "knightrun.cluster-ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+        "port": 3306,
+        "charset": "utf8"
+      },
+      "knightrun": {
+        "user": "akaAdmin",
+        "password": "dkzkdjemals$#",
+        "database": "knightrun",
+        "host": "knightrun.cluster-ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+        "port": 3306,
+        "charset": "utf8"
+      },
+      "knightrun_gmtool": {
+        "user": "akaAdmin",
+        "password": "dkzkdjemals$#",
+        "database": "knightrun_gmtool",
+        "host": "knightrun.cluster-ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+        "port": 3306,
+        "charset": "utf8"
+      },
+      "kpi": {
+        "user": "akaAdmin",
+        "password": "dkzkdjemals$#",
+        "database": "kpi",
+        "host": "knightrun.cluster-ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+        "port": 3306,
+        "charset": "utf8"
+      }
+    },
+  "PUBSUB": {
+    "Redis": "mainredis-001.mgo0rh.0001.apn2.cache.amazonaws.com",
+    "Port": 6379,
+    "Auth": ""
+  }
+}

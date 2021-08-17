@@ -1,0 +1,63 @@
+{
+  "BattleServerPort" : 30654,
+  "GameServer" : 
+  {
+    "ip" : "172.30.1.224",
+    "port" : 40654,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 20
+    }
+  },
+  "GameRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "172.30.1.224",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 20
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "aka10"
+  },
+  "RecordSetting" :
+  {
+    "UseAWS" : false,
+    "AWSProfile" : "dev.battlerecord",
+    "AWSCredential" : "aws_credentials",
+    "AWSRegion" : "ap-northeast-2",
+    "AWSBucket" : "aka-dev-resource",
+    "LocalStoragePath" : "~/Documents/Records"
+  },
+  "ServerConfig" : 
+  {
+    "ListenBacklog" : 1024,
+    "KeepAliveTime" : 30,
+    "MaxConnectionNumber" : 3000,
+    "ReceiveBufferSize" : 4096,
+    "MaxRequestLength" : 1024,
+    "SendBufferSize" : 4096,
+    "SendingQueueSize" : 512,
+    "LogAllSocketException" : true,
+    "LogBasicSessionActivity" : true,
+    "LogCommand" : true,
+    "ClearIdleSession" : true,
+    "ClearIdleSessionInterval" : 120,
+    "IdleSessionTimeOut" : 600,
+    "SyncSend" : false
+  }, 
+  "RootConfig" : 
+  {
+    "MaxCompletionPortThreads" : 500,
+    "MinWorkingThreads" : 100,
+    "MaxWorkingThreads" : 500,
+    "DisablePerformanceDataCollector" : true,
+    "MultiCount" : 100
+  }
+
+}

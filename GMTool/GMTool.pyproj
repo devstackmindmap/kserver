@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>GMTool</Name>
+    <RootNamespace>GMTool</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.6</InterpreterId>
+    <PythonRunWebServerCommandType />
+    <PythonDebugWebServerCommandType />
+    <CommandLineArguments>
+    </CommandLineArguments>
+    <WebBrowserPort>63545</WebBrowserPort>
+    <PythonRunWebServerCommandArguments>runserver 0.0.0.0:%SERVER_PORT% --settings GMTool.settings</PythonRunWebServerCommandArguments>
+    <PythonDebugWebServerCommandArguments>runserver 0.0.0.0:%SERVER_PORT% --noreload --settings GMTool.settings</PythonDebugWebServerCommandArguments>
+    <SuppressPackageInstallationPrompt>True</SuppressPackageInstallationPrompt>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>17c4d75d-69a0-4d9a-8f2f-22976ec7a1d3</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <WebBrowserUrl>http://127.0.0.1</WebBrowserUrl>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>GMTool.settings</DjangoSettingsModule>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'publish' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <OutputPath>bin\publish\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'PublishProtocolTest' ">
+    <OutputPath>bin\PublishProtocolTest\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'PublishAkaClient' ">
+    <OutputPath>bin\PublishAkaClient\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Test' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <OutputPath>bin\Test\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'PublishOnly' ">
+    <OutputPath>bin\PublishOnly\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'TestUWP' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <OutputPath>bin\TestUWP\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'TestUWPRelease' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <OutputPath>bin\TestUWPRelease\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\context_processors.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\infra\inGameMessageJob.py" />
+    <Compile Include="app\infra\middleWare.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\infra\assetBundle.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\infra\common.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\infra\db.py" />
+    <Compile Include="app\infra\table.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\infra\utility.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\view\assetBundle\file.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\view\game\alluserInfo.py" />
+    <Compile Include="app\view\game\clanInfo.py" />
+    <Compile Include="servermode.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\view\game\userInfo.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\view\index.py" />
+    <Compile Include="app\view\log\log.py" />
+    <Compile Include="app\view\message\message.py" />
+    <Compile Include="app\view\shopManage\shop.py" />
+    <Compile Include="app\view\table\file.py" />
+    <Compile Include="GMTool\settings.py" />
+    <Compile Include="GMTool\urls.py" />
+    <Compile Include="GMTool\wsgi.py" />
+    <Compile Include="GMTool\__init__.py" />
+    <Compile Include="GeoIPSchedule.py" />
+    <Compile Include="s3test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pushSchedule.py" />
+    <Compile Include="jobSchedule.py" />
+    <Compile Include="manage.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.json" />
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\gmtool\common.js" />
+    <Content Include="app\static\gmtool\controller\alluserInfo.js" />
+    <Content Include="app\static\gmtool\controller\assetBundle.js" />
+    <Content Include="app\static\gmtool\controller\table.js" />
+    <Content Include="app\static\gmtool\controller\message.js" />
+    <Content Include="app\static\gmtool\controller\logView.js" />
+    <Content Include="app\static\gmtool\controller\shop.js" />
+    <Content Include="app\static\gmtool\controller\clanInfo.js" />
+    <Content Include="app\static\gmtool\controller\userInfo.js" />
+    <Content Include="app\static\gmtool\table.js" />
+    <Content Include="app\static\table\empty.txt" />
+    <Content Include="app\templates\app\assetBundle\inquiryAssetBundle.html" />
+    <Content Include="app\templates\app\assetBundle\updateAssetBundleOrder.html" />
+    <Content Include="app\templates\app\assetBundle\transferAssetBundle.html" />
+    <Content Include="app\templates\app\assetBundle\updateAssetBundleVersion.html" />
+    <Content Include="app\templates\app\assetBundle\uploadMultiAssetBundle.html" />
+    <Content Include="app\templates\app\game\allUserModify.html" />
+    <Content Include="app\templates\app\game\deleteItem.html" />
+    <Content Include="app\templates\app\game\friendList.html" />
+    <Content Include="app\templates\app\game\inquiryClanInfo.html" />
+    <Content Include="app\templates\app\game\inquiryEventInfo.html" />
+    <Content Include="app\templates\app\game\maintenanceTimeInsert.html" />
+    <Content Include="app\templates\app\game\serverInhouseChecker.html" />
+    <Content Include="app\templates\app\game\insertItem.html" />
+    <Content Include="app\templates\app\game\addUserInfo.html" />
+    <Content Include="app\templates\app\game\inquiryUserInfo.html" />
+    <Content Include="app\templates\app\game\messagePush.html" />
+    <Content Include="app\templates\app\game\publicNotice.html" />
+    <Content Include="app\templates\app\game\truncateUser.html" />
+    <Content Include="app\templates\app\log\logView.html" />
+    <Content Include="app\templates\app\log\selectLogServer.html" />
+    <Content Include="app\templates\app\log\selectMessageType.html" />
+    <Content Include="app\templates\app\log\selectLogType.html" />
+    <Content Include="app\templates\app\log\logInfoSelectSet.html" />
+    <Content Include="app\templates\app\message\getReservationPushList.html" />
+    <Content Include="app\templates\app\message\inGameNoticeList.html" />
+    <Content Include="app\templates\app\message\insertMailtype.html" />
+    <Content Include="app\templates\app\message\insertPublicMail.html" />
+    <Content Include="app\templates\app\message\pushReservation.html" />
+    <Content Include="app\templates\app\message\noticeReservation.html" />
+    <Content Include="app\templates\app\message\publicNotice.html" />
+    <Content Include="app\templates\app\message\selectMailIconType.html" />
+    <Content Include="app\templates\app\message\selectMailType.html" />
+    <Content Include="app\templates\app\partial\allmodifyselect.html" />
+    <Content Include="app\templates\app\partial\alluserInfoSelectSet.html" />
+    <Content Include="app\templates\app\partial\inputClanIdentity.html" />
+    <Content Include="app\templates\app\partial\inputUserIdentity.html" />
+    <Content Include="app\templates\app\partial\selectTableInfoType.html" />
+    <Content Include="app\templates\app\partial\selectShopInfoType.html" />
+    <Content Include="app\templates\app\partial\selectClanInfoType.html" />
+    <Content Include="app\templates\app\partial\selectUserInfoType.html" />
+    <Content Include="app\templates\app\partial\selectUserInfoType_insertItem.html" />
+    <Content Include="app\templates\app\partial\selectPushRole.html" />
+    <Content Include="app\templates\app\partial\selectRunMode.html" />
+    <Content Include="app\templates\app\partial\insertItemPart.html" />
+    <Content Include="app\templates\app\partial\select_truncate.html" />
+    <Content Include="app\templates\app\partial\publicNotice.html" />
+    <Content Include="app\templates\app\partial\truncate.html" />
+    <Content Include="app\templates\app\partial\shopInfoSelectSet.html" />
+    <Content Include="app\templates\app\partial\clanInfoSelectSet.html" />
+    <Content Include="app\templates\app\partial\userInfoSelectSet.html" />
+    <Content Include="app\templates\app\shop\addShopInfo.html" />
+    <Content Include="app\templates\app\shop\refreshShopInfo.html" />
+    <Content Include="app\templates\app\shop\getShopInfo.html" />
+    <Content Include="app\templates\app\table\inquiryTableContent.html" />
+    <Content Include="app\templates\app\table\inquiryTableHistory.html" />
+    <Content Include="app\templates\app\table\transferTable.html" />
+    <Content Include="app\templates\app\table\tableApartInfo.html" />
+    <Content Include="app\templates\app\table\updateTableOrderAndSelectionInfo.html" />
+    <Content Include="app\templates\app\table\updateTableVersion.html" />
+    <Content Include="app\templates\app\table\uploadMultiDB.html" />
+    <Content Include="app\templates\app\table\uploadMultiTable.html" />
+    <Content Include="app\templates\app\table\viewStoreSchedule.html" />
+    <Content Include="Config\Bongpalman\AkaConfig.json" />
+    <Content Include="Config\Dev1\AkaConfig.json" />
+    <Content Include="Config\Dev2\AkaConfig.json" />
+    <Content Include="Config\Dohyun\AkaConfig.json" />
+    <Content Include="Config\Dylan2\AkaConfig.json" />
+    <Content Include="Config\IOS\AkaConfig.json" />
+    <Content Include="Config\JoyOne\AkaConfig.json" />
+    <Content Include="Config\Live\AkaConfig.json" />
+    <Content Include="Config\Machance\AkaConfig.json" />
+    <Content Include="Config\Milkman\AkaConfig.json" />
+    <Content Include="Config\Review\AkaConfig.json" />
+    <Content Include="Config\showcase\AkaConfig.json" />
+    <Content Include="Config\Tiger\AkaConfig.json" />
+    <Content Include="package.json" />
+    <None Include="app\static\app\scripts\_references.js" />
+    <Content Include="app\static\app\scripts\bootstrap.js" />
+    <Content Include="app\static\app\scripts\bootstrap.min.js" />
+    <None Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
+    <None Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <Content Include="app\static\app\scripts\jquery.validate.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
+    <Content Include="app\static\app\scripts\respond.js" />
+    <Content Include="app\static\app\scripts\respond.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker.css" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker.css.map" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker3.css" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker3.css.map" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="app\static\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="app\static\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="app\static\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="app\static\bootstrap-datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\css\fileinput-rtl.css" />
+    <Content Include="app\static\bootstrap-fileinput\css\fileinput-rtl.min.css" />
+    <Content Include="app\static\bootstrap-fileinput\css\fileinput.css" />
+    <Content Include="app\static\bootstrap-fileinput\css\fileinput.min.css" />
+    <Content Include="app\static\bootstrap-fileinput\img\loading-sm.gif" />
+    <Content Include="app\static\bootstrap-fileinput\img\loading.gif" />
+    <Content Include="app\static\bootstrap-fileinput\js\fileinput.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\fileinput.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\ar.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\az.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\bg.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\ca.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\cr.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\cz.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\da.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\de.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\el.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\es.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\et.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\fa.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\fi.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\fr.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\gl.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\hu.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\id.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\it.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\ja.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\kr.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\kz.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\LANG.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\nl.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\no.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\pl.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\pt-BR.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\pt.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\ro.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\ru.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\sk.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\sl.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\sv.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\th.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\tr.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\uk.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\vi.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\zh-TW.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\locales\zh.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\plugins\piexif.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\plugins\piexif.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\plugins\purify.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\plugins\purify.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\plugins\sortable.js" />
+    <Content Include="app\static\bootstrap-fileinput\js\plugins\sortable.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer-fa\theme.css" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer-fa\theme.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer-fa\theme.min.css" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer-fa\theme.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer\theme.css" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer\theme.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer\theme.min.css" />
+    <Content Include="app\static\bootstrap-fileinput\themes\explorer\theme.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\fa\theme.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\fa\theme.min.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\gly\theme.js" />
+    <Content Include="app\static\bootstrap-fileinput\themes\gly\theme.min.js" />
+    <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\layout.html" />
+    <Content Include="app\templates\app\login.html" />
+    <Content Include="app\templates\app\partial\login.html" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\infra\" />
+    <Folder Include="app\document\" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\app\" />
+    <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\static\bootstrap-datepicker\" />
+    <Folder Include="app\static\bootstrap-datepicker\css\" />
+    <Folder Include="app\static\bootstrap-datepicker\js\" />
+    <Folder Include="app\static\bootstrap-datepicker\locales\" />
+    <Folder Include="app\static\bootstrap-fileinput\" />
+    <Folder Include="app\static\bootstrap-fileinput\css\" />
+    <Folder Include="app\static\bootstrap-fileinput\img\" />
+    <Folder Include="app\static\bootstrap-fileinput\js\" />
+    <Folder Include="app\static\bootstrap-fileinput\js\locales\" />
+    <Folder Include="app\static\bootstrap-fileinput\js\plugins\" />
+    <Folder Include="app\static\bootstrap-fileinput\themes\" />
+    <Folder Include="app\static\bootstrap-fileinput\themes\explorer-fa\" />
+    <Folder Include="app\static\bootstrap-fileinput\themes\explorer\" />
+    <Folder Include="app\static\bootstrap-fileinput\themes\fa\" />
+    <Folder Include="app\static\bootstrap-fileinput\themes\gly\" />
+    <Folder Include="app\static\gmtool\" />
+    <Folder Include="app\static\gmtool\controller\" />
+    <Folder Include="app\static\assetBundle\" />
+    <Folder Include="app\static\table\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="app\templates\app\game\" />
+    <Folder Include="app\templates\app\assetBundle\" />
+    <Folder Include="app\templates\app\message\" />
+    <Folder Include="app\templates\app\log\" />
+    <Folder Include="app\templates\app\shop\" />
+    <Folder Include="app\templates\app\partial\" />
+    <Folder Include="app\templates\app\table\" />
+    <Folder Include="app\view\" />
+    <Folder Include="app\view\game\" />
+    <Folder Include="app\view\assetBundle\" />
+    <Folder Include="app\view\message\" />
+    <Folder Include="app\view\log\" />
+    <Folder Include="app\view\shopManage\" />
+    <Folder Include="app\view\table\" />
+    <Folder Include="Config\" />
+    <Folder Include="Config\Bongpalman\" />
+    <Folder Include="Config\Dev1\" />
+    <Folder Include="Config\Dev2\" />
+    <Folder Include="Config\Dohyun\" />
+    <Folder Include="Config\Dylan2\" />
+    <Folder Include="Config\IOS\" />
+    <Folder Include="Config\JoyOne\" />
+    <Folder Include="Config\Live\" />
+    <Folder Include="Config\Machance\" />
+    <Folder Include="Config\Milkman\" />
+    <Folder Include="Config\Review\" />
+    <Folder Include="Config\showcase\" />
+    <Folder Include="Config\Tiger\" />
+    <Folder Include="GMTool\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.6" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

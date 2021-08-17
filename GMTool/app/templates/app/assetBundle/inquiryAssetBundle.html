@@ -1,0 +1,74 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="container" ng-controller="assetBundleController">
+	<div class="form-group">
+        <lable class="control-label" for="runMode">서버 종류:</lable>
+        <div>
+            {% include 'app/partial/selectRunMode.html' with runModeDef="runMode" %}
+        </div>
+    </div>
+	<div class="form-group">
+        <lable for="assetBundleType">에섯번들 종류:</lable>
+        <div>
+			<select class="selectpicker" id="assetBundleType" name="assetBundleType">
+				{% for assetBundleData in assetBundleNames %}
+					<option value="{{assetBundleData.name}}">{{assetBundleData.name}}</option>
+				{% endfor %}
+			</select>
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="button" value="조회" ng-click="getAssetBundles()"/>
+    </div>
+
+	<div class="form-group">
+		<table id="assetBundleHistory" class="table table-striped table-bordered" style="width:100%">
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="isAllChoiceCheck" ng-click="checkAllChoiceButton()" /> 선택</th>
+					<th>버전</th>
+					<th>타입</th>
+					<th>Url</th>
+					<th>날짜</th>
+					<th>주석</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="assetBundleInfo in assetBundleRows">
+					<td>
+						<input type="checkbox" name="isChecked[]" value="[[assetBundleInfo.version]]">
+					</td>
+					<td>[[assetBundleInfo.version]]</td>
+					<td>[[assetBundleInfo.name]]</td>
+					<td>[[assetBundleInfo.url]]</td>
+					<td>[[assetBundleInfo.createDate]]</td>
+					<td>[[assetBundleInfo.comment]]</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="form-group">
+        <input class="btn btn-primary" type="button" value="삭제" ng-click="deleteSelectedAssetBundles()"/>
+    </div>
+</div>
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/assetBundle.js' %}"></script>"
+    <script>
+		/*
+        $(document).ready(function(){
+			$('#assetBundleHistory').DataTable({
+				"scrollY": "700px",
+				"scrollX": true,
+				"scrollCollapse": true,
+				"paging": false,
+				"order": [[1, "desc"]]
+            });
+		});
+		*/
+    </script>
+{% endblock %}

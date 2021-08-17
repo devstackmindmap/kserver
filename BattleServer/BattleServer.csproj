@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E58F15A9-CF99-40D2-802E-EFC735A96B24}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BattleServer</RootNamespace>
+    <AssemblyName>BattleServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>server_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PublishOnly|AnyCPU'">
+    <OutputPath>bin\PublishOnly\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWP|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestUWP\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestUWPRelease|AnyCPU'">
+    <OutputPath>bin\TestUWPRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.104.21\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=14.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.14.0.0\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pipelines.Sockets.Unofficial.2.1.1\lib\net461\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.2.0.601\lib\net461\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.1.6.6.1\lib\net45\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.Engine.1.6.6.1\lib\net45\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketService, Version=1.6.6.1, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSocket.Engine.1.6.6.1\lib\net45\SuperSocket.SocketService.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.4.5.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.IO.Pipelines, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.4.7.0\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Channels, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.4.5.0\lib\netstandard2.0\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BattleRecord\IWriter.cs" />
+    <Compile Include="BattleRecord\FileWriter.cs" />
+    <Compile Include="BattleRecord\NullWriter.cs" />
+    <Compile Include="Controller\ControllerFactory.cs" />
+    <Compile Include="Controller\Controllers\BaseController.cs" />
+    <Compile Include="Controller\Controllers\EmoticonUse.cs" />
+    <Compile Include="Controller\Controllers\CardUse.cs" />
+    <Compile Include="Controller\Controllers\EnterRoom\EnterEventChallengeRoom.cs" />
+    <Compile Include="Controller\Controllers\EnterRoom\EnterChallengeRoom.cs" />
+    <Compile Include="Controller\Controllers\EnterRoom\EnterCommonPvERoom.cs" />
+    <Compile Include="Controller\Controllers\EnterRoom\EnterLeagueRoom.cs" />
+    <Compile Include="Controller\Controllers\EnterRoom\EnterRoom.cs" />
+    <Compile Include="Controller\Controllers\EnterRoom\EnterPvERoom.cs" />
+    <Compile Include="Controller\Controllers\ReEnterRoom.cs" />
+    <Compile Include="Controller\Controllers\EnterRoom\EnterPvPRoom.cs" />
+    <Compile Include="Controller\Controllers\BattleReady.cs" />
+    <Compile Include="Controller\Controllers\Retreat.cs" />
+    <Compile Include="Controller\Controllers\ServerState.cs" />
+    <Compile Include="Controller\Controllers\SyncTime.cs" />
+    <Compile Include="Controller\Helper\EventChallengeInfoHelper.cs" />
+    <Compile Include="Controller\Helper\ChallengeInfoHelper.cs" />
+    <Compile Include="Controller\Helper\VirtualInfoHelper.cs" />
+    <Compile Include="Controller\PveInfoFactory.cs" />
+    <Compile Include="Controller\Helper\PracticeInfoHelper.cs" />
+    <Compile Include="Controller\Helper\LeagueInfoHelper.cs" />
+    <Compile Include="Controller\Helper\RoguelikeInfoHelper.cs" />
+    <Compile Include="RoomManager\BattleInfo\BattleInfoEventChallenge.cs" />
+    <Compile Include="RoomManager\BattleInfo\IBattleInfo.cs" />
+    <Compile Include="RoomManager\BattleInfo\BattleInfoRoguelike.cs" />
+    <Compile Include="RoomManager\BattleInfo\BattleInfoChallenge.cs" />
+    <Compile Include="RoomManager\BattleInfo\BattleInfo.cs" />
+    <Compile Include="RoomManager\Room\PvERoom\EventChallengeRoom.cs" />
+    <Compile Include="RoomManager\Room\PvERoom\ChallengeRoom.cs" />
+    <Compile Include="RoomManager\Room\PvPRoom\FriendlyRoom.cs" />
+    <Compile Include="RoomManager\Room\PvERoom\VirtualLeagueRoom.cs" />
+    <Compile Include="RoomManager\Room\PvERoom\PracticeRoom.cs" />
+    <Compile Include="RoomManager\Room\PvERoom\RoguelikeRoom.cs" />
+    <Compile Include="RoomManager\Room\PvERoom\LeagueRoomAi.cs" />
+    <Compile Include="RoomManager\Room\PvPRoom\LeagueRoom.cs" />
+    <Compile Include="RoomManager\Room\PvPRoom.cs" />
+    <Compile Include="RoomManager\Room\PvERoom.cs" />
+    <Compile Include="BattleRecord\BattleRecordStorage.cs" />
+    <Compile Include="RoomManager\RoomFactory.cs" />
+    <Compile Include="RoomManager\Stage\Stage.cs" />
+    <Compile Include="RoomManager\Room\Room.cs" />
+    <Compile Include="RoomManager\RoomManager.cs" />
+    <Compile Include="RoomManager\RoomStatus.cs" />
+    <Compile Include="BattleRecord\AWSWriter.cs" />
+    <Compile Include="Server\PerformanceMonitor.cs" />
+    <Compile Include="Server\MainServer.cs" />
+    <Compile Include="Session\NetworkSession.cs" />
+    <Compile Include="Controller\CustomReceiveFilter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Config\log4net.config" />
+    <None Include="Config\log4net.unix.config" />
+    <None Include="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="supersocket.cmd" />
+    <None Include="supersocket.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AkaConfig\AkaConfig.csproj">
+      <Project>{9ad4b454-832f-46a4-a4eb-b1c62fab9012}</Project>
+      <Name>AkaConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaData\AkaData.csproj">
+      <Project>{96e80ddc-a4de-408d-80a9-d0671f264bd8}</Project>
+      <Name>AkaData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaDB\AkaDB.csproj">
+      <Project>{047774ee-a271-47a8-b118-11e19f38ef04}</Project>
+      <Name>AkaDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaEnum\AkaEnum.csproj">
+      <Project>{a88c4f0f-dd1a-419f-93e9-d83668b12f8d}</Project>
+      <Name>AkaEnum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaInterface\AkaInterface.csproj">
+      <Project>{3796ab89-60ac-42ae-ac99-d52a6800b7d0}</Project>
+      <Name>AkaInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaLogger\AkaLogger.csproj">
+      <Project>{e8fff5f0-1807-470e-8cff-490ab9705e8d}</Project>
+      <Name>AkaLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaRedisLogic\AkaRedisLogic.csproj">
+      <Project>{28ab381c-2494-4314-9b8b-1e82325c19c7}</Project>
+      <Name>AkaRedisLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaRedis\AkaRedis.csproj">
+      <Project>{9855e5ea-9bd4-46ef-8c63-58e3ba7391f5}</Project>
+      <Name>AkaRedis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaSerializer\AkaSerializer.csproj">
+      <Project>{8f2894ad-92ae-4b50-b1f6-4bec9bff00c8}</Project>
+      <Name>AkaSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaThreading\AkaThreading.csproj">
+      <Project>{0FFCED2C-7FFD-4ABC-93F5-77F6DD6054CE}</Project>
+      <Name>AkaThreading</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AkaUtility\AkaUtility.csproj">
+      <Project>{C098B259-038B-4830-B9F0-736AEE09981C}</Project>
+      <Name>AkaUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleLogic\BattleLogic.csproj">
+      <Project>{b17331d6-fe2a-4cb7-a6ae-9396259b1852}</Project>
+      <Name>BattleLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonProtocol\CommonProtocol.csproj">
+      <Project>{1325deea-59a1-4d7b-a8fa-442b7b52d84e}</Project>
+      <Name>CommonProtocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{711cc5e1-9ab1-4910-bd90-54e0454b2e77}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nlog.RabbitMQ.Target\Nlog.RabbitMQ.Target.csproj">
+      <Project>{a69ec3e3-a2b4-48f6-9e7b-0acece82d211}</Project>
+      <Name>Nlog.RabbitMQ.Target</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="server_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

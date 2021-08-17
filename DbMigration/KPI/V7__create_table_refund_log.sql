@@ -1,0 +1,19 @@
+drop table `refund_log2`;
+
+CREATE TABLE `refund_log2` (
+	`seq` INT(11) NOT NULL AUTO_INCREMENT,
+	`userId` INT(11) NULL DEFAULT NULL,
+	`materialType` INT(11) NULL DEFAULT NULL,
+	`LogType` CHAR(10) NULL DEFAULT NULL,
+	`LogCategory` CHAR(20) NULL DEFAULT NULL,
+	`Count` INT(11) NULL DEFAULT NULL,
+	`total` INT(11) NULL DEFAULT NULL,
+	`datetime` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`seq`),
+	INDEX `userId` (`userId`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DYNAMIC
+AUTO_INCREMENT=1
+;

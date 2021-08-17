@@ -1,0 +1,14 @@
+﻿<select class="selectpicker" id="userInfoType" name="userInfoType" ng-model="selectedUserInfoType" {% if onUserInfoTypeChange %} ng-change="onUserInfoTypeChange(selectedUserInfoType)" {% endif %}>
+    <option value="" disabled>선택하세요</option>
+    <option value="users">유저재화</option>
+    <option value="units">유닛</option>
+    <option value="cards">카드</option>
+    <option value="weapons">무기</option>
+    <option value="allUnit">현재 유저 유닛 지급</option>
+    <option value="allSkill">현재 유저 스킬 지급</option>
+    <option value="allWeapons">현재 유저 무기 지급</option>
+    <option value="allUnitsLevel">유닛 일괄 레벨</option>
+    <option value="allSkillsLevel">스킬 일괄 레벨</option>
+    <option value="allWeaponsLevel">무기 일괄 레벨</option>
+
+</select>

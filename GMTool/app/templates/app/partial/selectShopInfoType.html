@@ -1,0 +1,15 @@
+﻿
+<select class="selectpicker" id="shopInfoType" name="shopInfoType" ng-model="selectedShopInfoType" {% if onShopInfoTypeChange %} ng-change="onShopInfoTypeChange(selectedShopInfoType)" {% endif %}>
+    <option value="">선택</option>
+	<option value="allList">상점 리스트</option>
+	<option value="productsText">상품 텍스트 관리</option>
+	<option value="products">상품 정보</option>
+	<option value="rewards">상품 리워드정보</option>
+	<option value="items">리워드내 아이템구성</option>
+    <option value="eventDigital">이벤트디지털상품</option>
+    <option value="eventReal">이벤트리얼상품</option>
+    <option value="fixDigital">고정디지탈상품</option>
+    <option value="fixReal">고정리얼</option>
+    <option value="userDigital">유저상품 디지탈</option>
+    <option value="userReal">유저상품 리얼</option>
+</select>

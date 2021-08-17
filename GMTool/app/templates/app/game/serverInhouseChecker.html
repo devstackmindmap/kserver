@@ -1,0 +1,21 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container" ng-controller="userInfoController">
+	{% include 'app/partial/publicNotice.html' %}
+
+    
+		<div  class="form-group">
+			<input class="btn btn-primary" type="button" value="서버 점검 모드 세트" ng-click="setInhouseChecker()"/>
+			<input class="btn btn-danger" type="button" value="서버 점검 모드 해제" ng-click="releaseInhouseChecker()" />
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/userInfo.js' %}"></script>"
+{% endblock %}
+

@@ -1,0 +1,156 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container" ng-controller="messageController" >
+	
+    <div class="form-group">
+	<lable class="control-label">서버 종류:</lable>
+	<br />
+	{% include 'app/partial/selectRunMode.html' with runModeDef="runMode" %}
+</div>
+
+<div class="form-group">
+	<lable class="control-label">유저정보 종류:</lable>
+	<br />
+    	
+    	{% if onShopInfoTypeChange %}
+	    	{% include 'app/message/selectMailType.html' with onShopInfoTypeChange=onShopInfoTypeChange %}
+	    {% else %}
+		    {% include 'app/message/selectMailType.html' %}
+    	{% endif %}
+
+</div>
+
+
+	<br />
+	<h4>메일 전달</h4>
+	<div class="panel panel-default" >
+		<div class="panel-body" id="divAddUserInfo">
+			<div ng-switch="selectedUserInfoType">
+
+				<div ng-switch-when="publicMail">
+					<div class="form-group">
+						<label class="control-label">메일노출시작:</label><br />
+						<input type="datetime-local" class="form-control" id="startDateTime" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">노출 중지시간:</label><br />
+						<input type="datetime-local" class="form-control" id="endDateTime" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">메일아이콘:</label><br />
+					
+                         {% include 'app/message/selectMailIconType.html' %}
+
+					</div>
+					<div class="form-group">
+						<label class="control-label">productId:</label><br />
+						<input type="number" class="form-control" id="productId" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">국문 메일 제목:</label><br />
+						<input type="text" class="form-control" id="kr_mailTitle" />
+					</div>
+                    <div class="form-group">
+						<label class="control-label">국문 메일 내용:</label><br />
+						<input type="text" class="form-control" id="kr_mailText" />
+					</div>
+                    <div class="form-group">
+						<label class="control-label">영문 메일 제목:</label><br />
+						<input type="text" class="form-control" id="en_mailTitle" />
+					</div>
+                    <div class="form-group">
+						<label class="control-label">영문 메일 내용:</label><br />
+						<input type="text" class="form-control" id="en_mailText" />
+					</div>
+                    <div class="form-group">
+						<label class="control-label">일문 메일 제목:</label><br />
+						<input type="text" class="form-control" id="jp_mailTitle" />
+					</div>
+                    <div class="form-group">
+						<label class="control-label">일문 메일 내용:</label><br />
+						<input type="text" class="form-control" id="jp_mailText" />
+					</div>
+				</div>
+				<div ng-switch-when="privateMail">
+					<div class="form-group">
+						<label class="control-label">유저 아이디: ',' 로 구분하여 여러명에게 보낼 수 있습니다.   </label><br />
+						<input type="text" class="form-control" id="userId" />
+					</div>				
+					<div class="form-group">
+						<label class="control-label">startDateTime:</label><br />
+						<input type="datetime-local" class="form-control" id="startDateTime" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">endDateTime:</label><br />
+						<input type="datetime-local" class="form-control" id="endDateTime" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">메일 제목:</label><br />
+						<input type="text" class="form-control" id="mailTitle" />
+					</div>				
+					<div class="form-group">
+						<label class="control-label">메일 내용:</label><br />
+						<input type="text" class="form-control" id="mailText" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">메일아이콘:</label><br />
+					
+                         {% include 'app/message/selectMailIconType.html' %}
+
+					</div>
+                    <div class="form-group">
+						<label class="control-label">product Id:</label><br />
+						<input type="number" class="form-control" id="productId" />
+					</div>
+				</div>
+                <div ng-switch-when="systemMail">
+					<div class="form-group">
+						<label class="control-label">유저 아이디:</label><br />
+						<input type="number" class="form-control" id="userId" />
+					</div>				
+					<div class="form-group">
+						<label class="control-label">systemMailId:</label><br />
+						<input type="number" class="form-control" id="systemMailId" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">startDateTime:</label><br />
+						<input type="datetime-local" class="form-control" id="startDateTime" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">endDateTime:</label><br />
+						<input type="datetime-local" class="form-control" id="endDateTime" />
+					</div>				
+				</div>
+                <div ng-switch-when="noticeMail">
+					<div class="form-group">
+						<label class="control-label">유저 아이디:</label><br />
+						<input type="text" class="form-control" id="userId" />
+					</div>				
+				</div>
+			
+				
+			</div>
+
+			<div ng-if="selectedUserInfoType">
+				<div class="form-group">
+					<input type="button" class="btn btn-primary" value="추가" ng-click="insertMail()" />
+                    
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/message.js' %}"></script>"
+
+{% endblock %}
+
+<script>
+    document.getElementById('startDateTime').value = new Date()
+    document.getElementById('endDateTime').value= new Date()
+</script>

@@ -1,0 +1,18 @@
+{
+  "PubSubServerPort" : 40594,
+  "PubSubRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "172.30.1.223",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  }
+}

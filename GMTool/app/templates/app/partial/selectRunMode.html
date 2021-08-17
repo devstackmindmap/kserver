@@ -1,0 +1,19 @@
+﻿<select class="selectpicker" id={{runModeDef}} name={{runModeDef}}>
+
+	<option value="Dev2" {% if user.setRunmode  == 'Dev2' %} selected {% endif %}>Dev2</option>
+    <option value="Dev1" {% if user.setRunmode  == 'Dev1' %} selected {% endif %}>Dev1</option>
+    <option value="Review" {% if user.setRunmode  == 'Review' %} selected {% endif %}>Review</option>
+    <option value="Live" {% if user.setRunmode  == 'Live' %} selected {% endif %}>Live</option>
+	<option value="Dylan" {% if user.setRunmode  == 'Dylan' %} selected {% endif %}>Dylan</option>
+    <option value="Dylan2" {% if user.setRunmode  == 'Dylan2' %} selected {% endif %}>Dylan2</option>
+	<option value="Machance" {% if user.setRunmode  == 'Machance' %} selected {% endif %}>Machance</option>
+	<option value="Bongpalman" {% if user.setRunmode  == 'Bongpalman' %} selected {% endif %}>Bongpalman</option>
+	<option value="JoyOne" {% if user.setRunmode == 'JoyOne' %} selected {% endif %}>JoyOne</option>
+    <option value="Milkman" {% if user.setRunmode == 'Milkman' %} selected {% endif %}>Milkman</option>
+    <option value="IOSMachance" {% if user.setRunmode  == 'IOSMachance' %} selected {% endif %}>IOSMachance</option>
+    <option value="IOSDev1" {% if user.setRunmode  == 'IOSDev1' %} selected {% endif %}>IOSDev1</option>
+    <option value="IOSDev2" {% if user.setRunmode  == 'IOSDev2' %} selected {% endif %}>IOSDev2</option>
+    <option value="IOSLive" {% if user.setRunmode  == 'IOSLive' %} selected {% endif %}>IOSLive</option>
+    <option value="MacOS" {% if user.setRunmode  == 'MacOS' %} selected {% endif %}>MacOS</option>
+    <option value="Staging" {% if user.setRunmode  == 'Staging' %} selected {% endif %}>Staging</option>
+</select>

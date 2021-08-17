@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="KnightUWP.UX.Pages.LoadingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KnightUWP.UX.Pages"
+    xmlns:control="using:KnightUWP.UX.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid >
+            <StackPanel>
+                    <TextBlock Margin="0,12,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Width="300">
+                    This round progress bar has a fixed size.<LineBreak/>
+                    The control only contains the round bar control, not this text.<LineBreak/>
+                    This is a very limited control, but it does show how to make a round progress bar using an ArcSegment.</TextBlock>
+            </StackPanel>
+
+            <control:RingProgress x:Name="ProgressControl" />
+        </Grid>
+    </Grid>
+</Page>

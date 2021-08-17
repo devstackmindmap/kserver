@@ -1,0 +1,2 @@
+ALTER TABLE `users`
+	ADD COLUMN `soPoint` INT(11) NOT NULL DEFAULT '0' AFTER `gem`;

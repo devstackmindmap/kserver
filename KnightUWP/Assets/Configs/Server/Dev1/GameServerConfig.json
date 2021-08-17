@@ -1,0 +1,100 @@
+{
+  "GameServerPort" : 40654,
+  "BattleServerPort" : 30654,
+  "PubSubServerPort" : 40594,
+  "WebPubServer" : 
+  {
+    "ip" : "dev1.akastudio.co.kr",
+    "port" : 40594,
+    "tryReconnectTime" : 3000,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "TriggerServer" : 
+  {
+    "ip" : "dev1.akastudio.co.kr",
+    "port" : 40694,
+    "tryReconnectTime" : 5000,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "MatchingServer" : 
+  {
+    "ip" : "dev1.akastudio.co.kr",
+    "port" : 40554,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "GameDBSetting" : 
+  {
+    "UserDBShardRange" : 3000000,
+    "AccountDBSetting" : 
+    {
+      "user": "kruser",
+      "password": "ghdrbsjrn43#$",
+      "database": "account",
+      "host": "dev1.akastudio.co.kr",
+      "port": 3554,
+      "charset": "utf8"
+    },
+    "UserDBSetting" : 
+    {
+      "0" : 
+      {
+        "user": "kruser",
+        "password": "ghdrbsjrn43#$",
+        "database": "knightrun",
+        "host": "dev1.akastudio.co.kr",
+        "port": 3554,
+        "charset": "utf8"
+      }
+    }
+  },
+  "GameRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "dev1.akastudio.co.kr",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  },
+  "MatchingServerList":{
+    "1" : {
+      "1" : {
+        "ip" : "dev1.akastudio.co.kr",
+        "port" : 40554
+      },
+      "2" : {
+        "ip" : "dev1.akastudio.co.kr",
+        "port" : 40555
+      },
+      "3" : {
+        "ip" : "dev1.akastudio.co.kr",
+        "port" : 40556
+      }
+    },
+    "2" : {
+      "1" : {
+        "ip" : "dev1.akastudio.co.kr",
+        "port" : 40554
+      }
+    }
+  },
+  "InAppUrl" : "http://inappcheck.akastudio.co.kr:3000/inappcheck"
+}

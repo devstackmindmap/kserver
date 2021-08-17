@@ -1,0 +1,26 @@
+<h1 id="tableLabel">유저 설정</h1>
+
+<p>사용자 선택</p>
+
+<p *ngIf="!userlist"><em>Loading...</em></p>
+
+<input type="text" id="newid" [(ngModel)]="addnewid" />
+<button class="btn btn-primary" (click)="addnew()">Add User</button>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="userlist">
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>스퀘어 오브젝트 갯수</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userlist, let i = index">
+      <td>{{ user.id }}</td>
+      <td>{{ user.soCount }}</td>
+      <td><button class="btn btn-primary" [routerLink]="['/squareobject']" [queryParams]="{id:user.id}">View</button></td>
+      <td><button class="btn btn-primary" (click)="delete( i )">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

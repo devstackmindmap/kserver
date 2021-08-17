@@ -1,0 +1,36 @@
+{
+    "ServerSetting": {
+        "TableCdnUrl": "http://download-dev.akastudio.co.kr/"
+    },
+    "DBSetting": {
+       "account": {
+            "user": "kruser",
+            "password": "ghdrbsjrn43#$",
+            "database": "account",
+            "host": "47.74.6.156",
+            "port": 3554,
+            "charset": "utf8"
+        },
+        "knightrun": {
+            "user": "kruser",
+            "password": "ghdrbsjrn43#$",
+            "database": "knightrun",
+            "host": "47.74.6.156",
+            "port": 3554,
+            "charset": "utf8"
+        },
+        "knightrun_gmtool": {
+            "user": "kruser",
+            "password": "ghdrbsjrn43#$",
+            "database": "knightrun_gmtool",
+            "host": "47.74.6.156",
+            "port": 3554,
+            "charset": "utf8"
+        }
+    },
+    "PUBSUB" : {
+        "Redis" : "47.74.6.156",
+        "Port": 6379,
+        "Auth" : "rkrufhdi34!"
+    }
+}

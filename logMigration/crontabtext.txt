@@ -1,0 +1,12 @@
+crontab -e
+
+* 20 * * * /usr/bin/python3  /KServer/LogMig/carduseLogmigration.py  >>  carduseLogmigration.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/daily_BoxOpenLog.py   >>  daily_BoxOpenLog.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/daily_Buy_item_log.py   >>  daily_Buy_item_log.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/daily_itemsLog_refact.py   >>  daily_itemsLog_refact.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/daily_matchlog.py   >>  daily_matchlog.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/dailyLog.py   >>  dailyLog.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/loginLogMigration.py   >>  loginLogMigration.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/normalattacklog.py   >>  normalattacklog.log
+* 20 * * * /usr/bin/python3  /KServer/LogMig/skillDamageLog.py   >>  skillDamageLog.log
+

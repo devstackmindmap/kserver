@@ -1,0 +1,1 @@
+insert ignore into _table_target_list values('data_spend_materials',0,NULL)

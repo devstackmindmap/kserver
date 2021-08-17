@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.soleft {
+  border-color: #1861ac;
+  float: left;
+}
+
+.soleftex {
+  width:780px;
+  border-color: #1861ac;
+  float: left;
+}
+
+.soright {
+  width:400px;
+  border-color: #8861ac;
+  float: left;
+}
+
+.history {
+  margin: 10px;
+}
+ 
+.soborder {
+  border: 2px solid #dee2e6;
+}
+
+.soborder_invade {
+  
+  border: 2px solid #f70d2c;
+}
+
+.soborder_reactive {
+  
+  border: 2px solid #0004ff;
+}
+
+.singletable {
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.greyback {
+  background-color: rgba(0,0,0,.05);
+}

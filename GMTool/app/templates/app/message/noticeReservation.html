@@ -1,0 +1,37 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="container" ng-controller="messageController" >
+	{% include 'app/partial/publicNotice.html' with onUserInfoTypeChange="onUserInfoTypeChange()" %}
+
+	<br />
+	<h4>전체 공지 예약 </h4>
+    <div class="panel panel-default" >
+		<div class="panel-body" id="divAddUserInfo">
+			<div ng-switch="selectedUserInfoType">
+                    <div class="form-group">
+                       <label >공지 메시지: <input type="text" width="700px" class="form-control" style="display:inline;" id="noticeMessage" name="noticeMessage"  /></label>
+                    </div>
+                    <div class="form-group">
+                        <label> 공지 횟수:<input type="number" class="form-control" style="display:inline;" id="count" name="count"  /></label>
+                    </div>
+                    <div class="form-group">
+                        <label> 공지 시작시간 <input type="datetime-local" class="form-control" style="display:inline;" id="startTime" name="startTime"  /></label>
+                    </div>
+			</div>
+			
+				<div class="form-group">
+                    <input type="button" class="btn btn-primary" value="전송" ng-click="noticeReservation()" />
+				</div>
+			
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+	<script src="{% static 'gmtool/controller/message.js' %}"></script>"
+
+{% endblock %}

@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="KnightUWP.UX.Frame.RootFrame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KnightUWP.UX.Frame"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:control="using:KnightUWP.UX.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
+    extensions:TitleBarExtensions.BackgroundColor="{StaticResource Brand-Color}"
+    extensions:TitleBarExtensions.ButtonBackgroundColor="{StaticResource Brand-Color}"
+    extensions:TitleBarExtensions.ButtonForegroundColor="{StaticResource Titlebar-Foreground}"
+    extensions:TitleBarExtensions.ForegroundColor="{StaticResource Titlebar-Foreground}"
+    SizeChanged="Page_SizeChanged" >
+
+    <Grid>
+        <Frame x:Name="NavigationFrame" />
+        <control:RingProgress x:Name="progressControl"  />
+    </Grid>
+</Page>

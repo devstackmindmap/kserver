@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS user_info_1;
+DROP TABLE IF EXISTS user_info_2;

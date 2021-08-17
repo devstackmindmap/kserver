@@ -1,0 +1,2 @@
+ALTER TABLE `accounts`
+	ADD COLUMN `friendCode` VARCHAR(16) NOT NULL DEFAULT '0' AFTER `rankPoint`;

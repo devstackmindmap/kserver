@@ -1,0 +1,25 @@
+{
+  "name": "inapppurchase",
+  "version": "1.0.0",
+  "description": "인앱테스트",
+  "main": "app.js",
+  "scripts": {
+    "test": "pm2 start index.js"
+  },
+  "author": "jongheekim",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "iap": "^1.1.1",
+    "in-app-purchase": "^1.11.4",
+    "mysql": "^2.17.1",
+    "path": "^0.12.7",
+    "swagger-jsdoc": "^3.5.0"
+  }
+}

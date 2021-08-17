@@ -1,0 +1,1 @@
+INSERT INTO _common (currentSeason, currentSeasonStartDateTime, nextSeasonStartDateTime) VALUES (1, '2019-10-14 00:00:00', '2021-10-15 06:00:00');

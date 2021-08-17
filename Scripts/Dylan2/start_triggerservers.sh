@@ -1,0 +1,1 @@
+D:\\Projects\\KnightRun\\kserver\\TriggerServer\\bin\\Debug\\TriggerServer.exe Dylan2 -f square -d 0 

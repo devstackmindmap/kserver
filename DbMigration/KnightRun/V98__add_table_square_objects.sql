@@ -1,0 +1,15 @@
+CREATE TABLE `square_objects` (
+	`seq` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`userId` INT(11) UNSIGNED NOT NULL,
+	`objectExp` INT(11) UNSIGNED NOT NULL DEFAULT '0',
+	`coreExp` INT(11) UNSIGNED NOT NULL DEFAULT '0',
+	`agencyExp` INT(11) UNSIGNED NOT NULL DEFAULT '0',
+	`objectLevel` INT(11) UNSIGNED NOT NULL DEFAULT '1',
+	`coreLevel` INT(11) UNSIGNED NOT NULL DEFAULT '1',
+	`agencyLevel` INT(11) UNSIGNED NOT NULL DEFAULT '1',
+	PRIMARY KEY (`seq`),
+	UNIQUE INDEX `UX_square_objects_userId` (`userId`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;

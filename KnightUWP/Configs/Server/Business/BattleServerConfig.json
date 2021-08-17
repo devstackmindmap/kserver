@@ -1,0 +1,28 @@
+{
+  "BattleServerPort" : 30654,
+  "GameServer" : 
+  {
+    "ip" : "business.akastudio.co.kr",
+    "port" : 40654,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "GameRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "47.244.134.120",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  }
+}

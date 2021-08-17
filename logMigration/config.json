@@ -1,0 +1,43 @@
+{
+  "host": "10.0.1.239",
+  "port": 27017,
+  "replica": "",
+  "username": "",
+  "password": "",
+  "authSource": "",
+  "database": "KnightRun",
+  "DBSetting": {
+    "account": {
+      "user": "akaAdmin",
+      "password": "dkzkdjemals$#",
+      "database": "account",
+      "host": "knightrun-instance-1-ap-northeast-2c.ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+      "port": 3306,
+      "charset": "utf8"
+    },
+    "knightrun": {
+      "user": "akaAdmin",
+      "password": "dkzkdjemals$#",
+      "database": "knightrun",
+      "host": "knightrun-instance-1-ap-northeast-2c.ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+      "port": 3306,
+      "charset": "utf8"
+    },
+    "knightrun_gmtool": {
+      "user": "akaAdmin",
+      "password": "dkzkdjemals$#",
+      "database": "knightrun_gmtool",
+      "host": "knightrun-instance-1-ap-northeast-2c.ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+      "port": 3306,
+      "charset": "utf8"
+    },
+    "KPI": {
+      "user": "akaAdmin",
+      "password": "dkzkdjemals$#",
+      "database": "kpi",
+      "host": "knightrun-instance-1-ap-northeast-2c.ceofckii5eec.ap-northeast-2.rds.amazonaws.com",
+      "port": 3306,
+      "charset": "utf8"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+ALTER TABLE `accounts`
+	ADD COLUMN `rankLevel` INT(11) UNSIGNED NOT NULL DEFAULT 1 AFTER `distributeCodeSeq`,
+	ADD COLUMN `rankPoint` INT(11) NOT NULL DEFAULT 0 AFTER `rankLevel`;

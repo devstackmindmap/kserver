@@ -1,0 +1,8 @@
+﻿
+<select class="selectpicker" id="userInfoType" name="userInfoType" ng-model="selectedUserInfoType" {% if onUserInfoTypeChange %} ng-change="onUserInfoTypeChange(selectedUserInfoType)" {% endif %}>
+	<option value="" disabled>선택하세요</option>
+	<option value="units">유닛</option>
+	<option value="cards">카드</option>
+	<option value="armors">갑옷</option>
+	<option value="weapons">무기</option>
+</select>

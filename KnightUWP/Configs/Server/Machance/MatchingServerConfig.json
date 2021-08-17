@@ -1,0 +1,28 @@
+{
+  "MatchingServerPort" : 40554,
+  "GameServer" : 
+  {
+    "ip" : "172.30.1.223",
+    "port" : 40654,
+    "IOThrottling" : 
+    {
+      "InitialCount" : 10,
+      "MaxCount" : 10
+    }
+  },
+  "MatchingRedisSetting" :
+  {
+    "ServerSetting" :
+    {
+      "ip" : "172.30.1.223",
+      "port" : 6379,
+      "IOThrottling" : 
+      {
+        "InitialCount" : 10,
+        "MaxCount" : 10
+      }
+    },
+    "DefaultDatabase" : 0,
+    "Password" : "rkrufhdi34!"
+  }
+}

@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Library/UI/GridSplitter/GridSplitter.xaml" />
+        <ResourceDictionary Source="ms-appx:///Library/UI/TabView/TabView.xaml" />
+        <ResourceDictionary Source="ms-appx:///Library/UI/RangeSelector/RangeSelector.xaml" />
+        <ResourceDictionary Source="ms-appx:///Library/UI/RadialProgressBar/RadialProgressBar.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

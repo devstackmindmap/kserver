@@ -1,0 +1,24 @@
+{
+  "slackToken": "4EtBkll5p9FNmf9ejPmqQg9D",
+  "slackWebhook": "https://akastudiocorp.slack.com/services/hooks/jenkins-ci/",
+  "ServerList": [
+    {
+      "IP": "47.245.54.125",
+      "Port": 30654,
+      "RestartURL": "http://172.30.1.221:8080/job/Live_Kserver/job/RESTART_Battle01_47.245.54.125/build?token=klp4jlfa9jjkljklfa9jl",
+      "name": "배틀 01번"
+    },
+    {
+      "IP": "47.245.55.117",
+      "Port": 30654,
+      "RestartURL": "http://172.30.1.221:8080/job/Live_Kserver/job/RESTART_Battle02_47.245.55.117/build?token=jkl52390jls02jlfa",
+      "name": "배틀 02번"
+    },
+    {
+      "IP": "47.245.54.104",
+      "Port": 30654,
+      "RestartURL": "http://172.30.1.221:8080/job/Live_Kserver/job/RESTART_Battle03_47.245.54.104/build?token=jhklse9k39ghgha92",
+      "name": "배틀 03번"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+"RabbitMQSetting":{
+      "Url": "amqp://akastudio:dkzktmxbeldh@47.74.6.156",
+      "QueueName" : "KnightRun",
+      "exchangeName" : "rmq.target.Knight",
+      "RoutingKey" : "#"
+  },
+  "MongoDBSetting": {
+      "Url":"mongodb://localhost:27017",
+      "Port":"27017",
+      "DBName":"KnightRun",
+      "CollectionName" : "Log"
+  }
+}
+

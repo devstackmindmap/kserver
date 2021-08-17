@@ -1,0 +1,33 @@
+﻿namespace AkaEnum
+{
+    public enum WebUrlType
+    {
+        None,
+        Login,
+        InfusionBoxOpen,
+        UpdateWebTable,
+        UpdateAssetBundle,
+        GetTable,
+        SetDeck,
+        GetDeck,
+        GetStages,
+        StageLevelEnter,
+        StageLevelExit,
+        Grow,
+        LevelUp,
+        EquipmentPutOn,
+        EquipmentPutOff,
+        BuyGoods,
+        BattleTest,
+        BattleExit,
+        RequestMatching,
+        EnterRoom,
+        InitSession,
+        StartPVP,
+        AttackUnit,
+        FinishPVP,
+        SyncTime,
+        GetAssetBundle,
+        GetBattleServer
+    }
+}

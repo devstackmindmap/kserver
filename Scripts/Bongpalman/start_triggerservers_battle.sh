@@ -1,0 +1,1 @@
+D:\\Git\\kserver\\TriggerServer\\bin\\Debug\\TriggerServer.exe Bongpalman -f battleservercheck -p 40699
